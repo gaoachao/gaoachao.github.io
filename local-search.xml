@@ -8,7 +8,7 @@
     <link href="/2022/05/08/test-article/"/>
     <url>/2022/05/08/test-article/</url>
     
-    <content type="html"><![CDATA[<h2 id="这是一篇测试文章"><a href="#这是一篇测试文章" class="headerlink" title="这是一篇测试文章"></a>这是一篇测试文章</h2><p><img src="/images/test.png" alt="测试图片"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="这是一篇测试文章"><a href="#这是一篇测试文章" class="headerlink" title="这是一篇测试文章"></a>这是一篇测试文章</h2><p><img src="/./test-article/test.png" alt="测试图片"></p>]]></content>
     
     
     <categories>
