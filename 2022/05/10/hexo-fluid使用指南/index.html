@@ -16,23 +16,23 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="JavaScript 中 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的区别 和其他语言有些不同，在 JavaScript 中除了用&#x3D;&#x3D;操作符来判断是否相等外，还有一个&#x3D;&#x3D;&#x3D;操作符，它们的区别是：&#x3D;&#x3D;操作符会先将两边的值进行强制类型转换再比较是否相等，而&#x3D;&#x3D;&#x3D;操作符不会进行类型转换。&#x3D;&#x3D;操作符只要求比较两个值是否相等，而&#x3D;&#x3D;&#x3D;操作符不仅要求值相等，而且要求类型相同。!&#x3D;和!&#x3D;&#x3D;的区别也是类似的，!&#x3D;号会做强制类型转换，而!">
+    <meta name="description" content="Hexo命令整理 更新博客 12hexo g -dhexo s 创建文章 执行如下命令创建一篇新文章，名为《测试文章》 1hexo new post 测试文章 执行完成后在source\_posts目录下生成了一个.md文件和一个同名的资源目录(用于存放图片)。 1234567891011---title: 测试文章date: 2021-06-10 16:35:20tags:- 原创categor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中&#x3D;&#x3D;&#x3D;和&#x3D;&#x3D;">
-<meta property="og:url" content="http://example.com/2022/05/09/js%E4%B8%AD-%E5%92%8C/index.html">
+<meta property="og:title" content="hexo+fluid使用指南">
+<meta property="og:url" content="http://example.com/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="JavaScript 中 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的区别 和其他语言有些不同，在 JavaScript 中除了用&#x3D;&#x3D;操作符来判断是否相等外，还有一个&#x3D;&#x3D;&#x3D;操作符，它们的区别是：&#x3D;&#x3D;操作符会先将两边的值进行强制类型转换再比较是否相等，而&#x3D;&#x3D;&#x3D;操作符不会进行类型转换。&#x3D;&#x3D;操作符只要求比较两个值是否相等，而&#x3D;&#x3D;&#x3D;操作符不仅要求值相等，而且要求类型相同。!&#x3D;和!&#x3D;&#x3D;的区别也是类似的，!&#x3D;号会做强制类型转换，而!">
+<meta property="og:description" content="Hexo命令整理 更新博客 12hexo g -dhexo s 创建文章 执行如下命令创建一篇新文章，名为《测试文章》 1hexo new post 测试文章 执行完成后在source\_posts目录下生成了一个.md文件和一个同名的资源目录(用于存放图片)。 1234567891011---title: 测试文章date: 2021-06-10 16:35:20tags:- 原创categor">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-09T15:29:45.000Z">
-<meta property="article:modified_time" content="2022-05-09T15:30:51.803Z">
+<meta property="article:published_time" content="2022-05-09T16:31:32.000Z">
+<meta property="article:modified_time" content="2022-05-09T16:33:17.330Z">
 <meta property="article:author" content="bitter-gourd">
-<meta property="article:tag" content="原创">
+<meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>js中===和== - Bitter-Gourd</title>
+  <title>hexo+fluid使用指南 - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="js中===和==">
+            <span class="h2" id="subtitle" title="hexo+fluid使用指南">
               
             </span>
 
@@ -193,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-09 23:29" pubdate>
-        2022年5月9日 晚上
+      <time datetime="2022-05-10 00:31" pubdate>
+        2022年5月10日 凌晨
       </time>
     </span>
   
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      634 字
+      1.6k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      14 分钟
     </span>
   
 
@@ -250,17 +250,43 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js中===和==</h1>
+            <h1 style="display: none">hexo+fluid使用指南</h1>
             
             <div class="markdown-body">
-              <h1>JavaScript 中 == 和 === 的区别</h1>
-<p>和其他语言有些不同，在 JavaScript 中除了用<code>==</code>操作符来判断是否相等外，还有一个<code>===</code>操作符，它们的区别是：<code>==</code>操作符会先将两边的值进行强制类型转换再比较是否相等，而<code>===</code>操作符不会进行类型转换。<code>==</code>操作符只要求比较两个值是否相等，而<code>===</code>操作符不仅要求值相等，而且要求类型相同。<code>!=</code>和<code>!==</code>的区别也是类似的，<code>!=</code>号会做强制类型转换，而<code>!==</code>不会。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">55</span> == <span class="hljs-string">&#x27;55&#x27;</span><br><span class="hljs-comment">// true</span><br><span class="hljs-number">55</span> === <span class="hljs-string">&#x27;55&#x27;</span><br><span class="hljs-comment">// false</span><br></code></pre></div></td></tr></table></figure>
-<p>第一个操作数是数值类型的<code>55</code>，第二个操作数是字符串类型的<code>&quot;55&quot;</code>。当一个操作数是字符串，另一个操作数是数值的时候，操作符<code>==</code>会把字符串转换成数值，所以结果就返回了<code>true</code>。而<code>===</code>不会做强制转换，所以数值类型的<code>55</code>和字符串类型的<code>&quot;55&quot;</code>当然是不相等的了。</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-title class_">NaN</span> == <span class="hljs-title class_">NaN</span><br><span class="hljs-comment">// false</span><br><span class="hljs-title class_">NaN</span> === <span class="hljs-title class_">NaN</span><br><span class="hljs-comment">// false</span><br></code></pre></div></td></tr></table></figure>
-<p>这里有一个特殊值<code>NaN</code>，即 Not a Number，表示非数字，它和任何数做相等比较，包括它自己，都会返回<code>false</code>。所以判断<code>NaN</code>最好用<code>isNaN()</code>函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-literal">null</span> == <span class="hljs-literal">undefined</span><br><span class="hljs-comment">// true</span><br><span class="hljs-literal">null</span> === <span class="hljs-literal">undefined</span><br><span class="hljs-comment">// false</span><br></code></pre></div></td></tr></table></figure>
-<p><code>null</code>也让人觉得难以理解。<code>null</code>用来表示空值，<code>undefined</code>用来表示不存在，但这在实际开发中并没有什么用，而且==和===对它们的处理也不一样。</p>
+              <h2 id="Hexo命令整理">Hexo命令整理</h2>
+<h4 id="更新博客">更新博客</h4>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo g -d</span><br><span class="hljs-attribute">hexo s</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="创建文章">创建文章</h4>
+<p>执行如下命令创建一篇新文章，名为《测试文章》</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">hexo new post 测试文章<br></code></pre></div></td></tr></table></figure>
+<p>执行完成后在<code>source\_posts</code>目录下生成了一个<code>.md</code>文件和一个同名的资源目录(用于存放图片)。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">测试文章</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2021-06-10 16:35:20</span><br><span class="hljs-attr">tags:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">原创</span><br><span class="hljs-attr">categories:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">Javascript</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-string">这是一篇测试文章</span><br><span class="hljs-type">![</span><span class="hljs-string">图片引用方法三](test.png)</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="删除文章">删除文章</h4>
+<p>直接删除本地文件，然后更新博客。</p>
+<h4 id="在文章里面显示图片">在文章里面显示图片</h4>
+<p>插件<code>hexo-renderer-marked</code>解决了这个问题。可以只用<code>npm install hexo-renderer-marked</code>命令直接安装，之后在<code>config.yaml</code>中更改配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">marked:</span><br>  <span class="hljs-attr">prependRoot:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">postAsset:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+<p>之后就可以在使用<code>![](test.jpg)</code>的方式愉快的插入图片了。</p>
+<h2 id="fluid主题美化">fluid主题美化</h2>
+<h4 id="1-友链设置">1. 友链设置</h4>
+<p>友情链接页用于展示好友的博客入口，默认关闭，开启需要先在 <code>navbar</code> 项中将 <code>links</code> 的注释(#号)删掉。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">navbar:</span><br>  <span class="hljs-attr">menu:</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;links&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/links/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-link-fill&#x27;</span> &#125;<br><span class="hljs-string">Copy</span><br></code></pre></div></td></tr></table></figure>
+<p>然后找到 <code>links</code> 的配置项，对页面内容进行配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">links:</span><br>  <span class="hljs-attr">items:</span><br>    <span class="hljs-bullet">-</span> &#123;<br>      <span class="hljs-attr">title:</span> <span class="hljs-string">&#x27;Fluid Docs&#x27;</span>,<br>      <span class="hljs-attr">intro:</span> <span class="hljs-string">&#x27;主题使用指南&#x27;</span>,<br>      <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://hexo.fluid-dev.com/docs/&#x27;</span>,<br>      <span class="hljs-attr">image:</span> <span class="hljs-string">&#x27;/img/favicon.png&#x27;</span><br>    &#125;<br><span class="hljs-string">Copy</span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><code>title</code>: 友链站的标题</li>
+<li><code>intro</code>: 站点或博主的简介，可省略</li>
+<li><code>link</code>: 跳转链接</li>
+<li><code>image</code>: 头像图片，可省略</li>
+</ul>
+<h4 id="2-hexo支持emoji">2.hexo支持emoji</h4>
+<p>首先进入博客目录,卸载<code>hexo</code>默认的marked渲染器，安装markdown-it渲染器，运行的命令如：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">cd Documents/blog<br>npm un hexo-renderer-marked <span class="hljs-comment">--save</span><br>npm i hexo-renderer-markdown-<span class="hljs-keyword">it</span> <span class="hljs-comment">--save</span><br></code></pre></div></td></tr></table></figure>
+<p>之后安装<code>markdown-it-emoji</code>插件：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">npm install markdown-<span class="hljs-keyword">it</span>-emoji <span class="hljs-comment">--save</span><br></code></pre></div></td></tr></table></figure>
+<p>这里的站点配置文件是指位于博客根目录下的 <code>_config.yml</code>，编辑它，然后在末尾添加如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment">## Markdown-it config</span><br><span class="hljs-comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span><br><span class="hljs-attr">markdown:</span><br>  <span class="hljs-attr">render:</span><br>    <span class="hljs-attr">html:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">xhtmlOut:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">breaks:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">linkify:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">typographer:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">quotes:</span> <span class="hljs-string">&#x27;“”‘’&#x27;</span><br>  <span class="hljs-attr">plugins:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-abbr</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-footnote</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-ins</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-sub</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-sup</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-emoji</span>  <span class="hljs-comment"># add emoji</span><br>  <span class="hljs-attr">anchors:</span><br>    <span class="hljs-attr">level:</span> <span class="hljs-number">2</span><br>    <span class="hljs-attr">collisionSuffix:</span> <span class="hljs-string">&#x27;v&#x27;</span><br>    <span class="hljs-attr">permalink:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">permalinkClass:</span> <span class="hljs-string">header-anchor</span><br>    <span class="hljs-attr">permalinkSymbol:</span> <span class="hljs-string">¶</span><br></code></pre></div></td></tr></table></figure>
+<p>在anchors这里配置需要小心，我不是很喜欢这个风格，于是就删去了。</p>
 
             </div>
             <hr>
@@ -270,7 +296,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">开发环境配置</a>
                     
                   </div>
                 
@@ -278,7 +304,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8E%9F%E5%88%9B/">原创</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E7%90%86/">整理</a>
                     
                   </div>
                 
@@ -295,18 +321,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo+fluid使用指南</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/09/Problems-Using-Arch/">
-                        <span class="hidden-mobile">Problems-Using-Arch</span>
+                      <a href="/2022/05/09/js%E4%B8%AD-%E5%92%8C/">
+                        <span class="hidden-mobile">js中===和==</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
