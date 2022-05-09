@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/05/09/Problems-Using-Arch/</loc>
-    
-    <lastmod>2022-05-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2022/05/09/linux%E5%91%BD%E4%BB%A4%E5%85%A8%E7%A7%B0/</loc>
     
     <lastmod>2022-05-09</lastmod>
@@ -80,13 +71,6 @@
   
   <url>
     <loc>http://example.com/categories/Linux/</loc>
-    <lastmod>2022-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
