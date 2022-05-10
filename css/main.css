@@ -82,7 +82,8 @@
   margin-left: 5px;
 }
 .copy-btn-dark {
-  color: #6a737d;
+  /*color: #6a737d;*/
+  color: #008b8b;
 }
 .copy-btn-light {
   color: #008b8b;
