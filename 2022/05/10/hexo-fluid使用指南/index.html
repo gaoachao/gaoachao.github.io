@@ -23,11 +23,13 @@
 <meta property="og:site_name" content="Bitter-Gourd">
 <meta property="og:description" content="Hexo命令整理 更新博客 12hexo g -dhexo s 创建文章 执行如下命令创建一篇新文章，名为《测试文章》 1hexo new post 测试文章 执行完成后在source\_posts目录下生成了一个.md文件和一个同名的资源目录(用于存放图片)。 1234567891011---title: 测试文章date: 2021-06-10 16:35:20tags:- 原创categor">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/test.png">
 <meta property="article:published_time" content="2022-05-09T16:31:32.000Z">
-<meta property="article:modified_time" content="2022-05-09T16:33:17.330Z">
+<meta property="article:modified_time" content="2022-05-10T12:21:33.913Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/test.png">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
@@ -204,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2k 字
     </span>
   
 
@@ -213,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      17 分钟
     </span>
   
 
@@ -267,7 +269,7 @@
 <p>插件<code>hexo-renderer-marked</code>解决了这个问题。可以只用<code>npm install hexo-renderer-marked</code>命令直接安装，之后在<code>config.yaml</code>中更改配置如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">marked:</span><br>  <span class="hljs-attr">prependRoot:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">postAsset:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
 <p>之后就可以在使用<code>![](test.jpg)</code>的方式愉快的插入图片了。</p>
-<h2 id="fluid主题美化">fluid主题美化</h2>
+<h2 id="Hexo-fluid美化">Hexo+fluid美化</h2>
 <h4 id="1-友链设置">1. 友链设置</h4>
 <p>友情链接页用于展示好友的博客入口，默认关闭，开启需要先在 <code>navbar</code> 项中将 <code>links</code> 的注释(#号)删掉。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">navbar:</span><br>  <span class="hljs-attr">menu:</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;links&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/links/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-link-fill&#x27;</span> &#125;<br><span class="hljs-string">Copy</span><br></code></pre></div></td></tr></table></figure>
@@ -287,6 +289,27 @@
 <p>这里的站点配置文件是指位于博客根目录下的 <code>_config.yml</code>，编辑它，然后在末尾添加如下内容：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment">## Markdown-it config</span><br><span class="hljs-comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span><br><span class="hljs-attr">markdown:</span><br>  <span class="hljs-attr">render:</span><br>    <span class="hljs-attr">html:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">xhtmlOut:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">breaks:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">linkify:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">typographer:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">quotes:</span> <span class="hljs-string">&#x27;“”‘’&#x27;</span><br>  <span class="hljs-attr">plugins:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-abbr</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-footnote</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-ins</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-sub</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-sup</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown-it-emoji</span>  <span class="hljs-comment"># add emoji</span><br>  <span class="hljs-attr">anchors:</span><br>    <span class="hljs-attr">level:</span> <span class="hljs-number">2</span><br>    <span class="hljs-attr">collisionSuffix:</span> <span class="hljs-string">&#x27;v&#x27;</span><br>    <span class="hljs-attr">permalink:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">permalinkClass:</span> <span class="hljs-string">header-anchor</span><br>    <span class="hljs-attr">permalinkSymbol:</span> <span class="hljs-string">¶</span><br></code></pre></div></td></tr></table></figure>
 <p>在anchors这里配置需要小心，我不是很喜欢这个风格，于是就删去了。</p>
+<h4 id="3-生成站点地图">3.生成站点地图</h4>
+<ol>
+<li>安装站点地图生成插件</li>
+</ol>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>hexo-generator-<span class="hljs-keyword">baidu-sitemap </span>--save<br>npm <span class="hljs-keyword">install </span>hexo-generator-sitemap --save<br></code></pre></div></td></tr></table></figure>
+<ol>
+<li>在博客根目录的<code>_config.yml</code>中添加自动生成sitemap的配置</li>
+</ol>
+<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">sitemap:</span><br><span class="hljs-symbol">  path:</span> sitemap.xml<br><span class="hljs-symbol">baidusitemap:</span><br><span class="hljs-symbol">  path:</span> baidusitemap.xml<br></code></pre></div></td></tr></table></figure>
+<p>同时确认一下该文件里面url对应的是否是接下来要提交的域名</p>
+<ol>
+<li>生成和部署</li>
+</ol>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo g</span><br><span class="hljs-attribute">hexo d</span><br></code></pre></div></td></tr></table></figure>
+<p>此时会在<code>public</code>目录下生成两个文件</p>
+<blockquote>
+<p><code>sitemap.xml</code> 用于提交给谷歌</p>
+<p><code>baidusitemap.xml</code> 用于提交给百度</p>
+</blockquote>
+<p>部署成功后，在浏览器打开 <code>你的域名/baidusitemap.xml</code>，成功展示即代表成功</p>
+<p><img src="test.png" srcset="/img/loading.gif" lazyload alt="部署测试"></p>
 
             </div>
             <hr>
