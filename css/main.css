@@ -331,6 +331,7 @@ code {
 table {
   font-size: inherit;
   color: var(--post-text-color);
+  background-color:#f5f5f5;
 }
 img[lazyload] {
   object-fit: cover;
@@ -781,15 +782,7 @@ img[lazyload] {
   }
 }
 .navbar.scrolling-navbar.top-nav-collapse {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.navbar .dropdown-menu {
-  font-size: 0.875rem;
-  color: var(--navbar-text-color);
-  background-color: rgba(0,0,0,0.3);
-  border: none;
-  -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+  padding-top: 5px;#f5f5f5n-out, padding 0.5s ease-in-out;
   transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 @media (max-width: 991.98px) {
@@ -833,15 +826,7 @@ img[lazyload] {
 }
 .navbar .animated-icon span {
   display: block;
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
+  position: absolute;#f5f5f5
   transform: rotate(0deg);
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
@@ -965,16 +950,7 @@ label {
 .markdown-body .hljs {
   overflow-x: initial;
   padding: 0;
-}
-.markdown-body .hljs pre {
-  background-color:#f5f5f5;
-  background-color: initial !important;
-}
-.markdown-body hr {
-  height: 0;
-  margin: 2rem 0;
-  background-color: initial;
-  border-top-width: 2px;
+}#f5f5f5rder-top-width: 2px;
   border-top-style: solid;
   border-top-color: rgba(0,0,0,0.1);
 }
