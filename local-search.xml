@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>github上显示图片</title>
+    <link href="/2022/05/10/github%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/"/>
+    <url>/2022/05/10/github%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</url>
+    
+    <content type="html"><![CDATA[<h2 id="在github上显示图片">在github上显示图片</h2><p>（1）首先在你的本地项目目录下新建一个Screenshots文件夹，用于来存放需要显示的图片，我放入1.png一张图片；</p><p>（2）在本地编辑.md文件，来引用这张图片，引用图片的语法如下：</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">![Alt text](https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/用户名/</span>repository仓库名<span class="hljs-regexp">/raw/</span>分支名<span class="hljs-regexp">/存放图片的文件夹名/</span>.png .jpg)<br></code></pre></div></td></tr></table></figure><p>（3）最后把你的项目提交或者更新到Github上时，Github会自动解析这个语法，并把图片在.md文件中显示出来。</p><p>(4)  同时你会发现本地.md文件也可以解析文件地址，此时就可以愉快地删除本地文件了！因为这一操作等价于将图片上传到服务器上。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发环境配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>原创</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo+fluid使用指南</title>
     <link href="/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
     <url>/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
