@@ -836,7 +836,7 @@ img[lazyload] {
   background: #fff;*/
 
   display: block;
-  position:a bsolute;
+  position:absolute;
   height: 3px;
   width: 100%;
   border-radius:9px;
