@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
+    <loc>https://www.bitter-gourd.com/2022/05/10/hexo-fluid%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
     
     <lastmod>2022-05-10</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/10/github%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</loc>
+    <loc>https://www.bitter-gourd.com/2022/05/10/github%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</loc>
     
     <lastmod>2022-05-10</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/09/js%E4%B8%AD-%E5%92%8C/</loc>
+    <loc>https://www.bitter-gourd.com/2022/05/09/js%E4%B8%AD-%E5%92%8C/</loc>
     
     <lastmod>2022-05-09</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/09/Problems-Using-Arch/</loc>
+    <loc>https://www.bitter-gourd.com/2022/05/09/Problems-Using-Arch/</loc>
     
     <lastmod>2022-05-09</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/09/linux%E5%91%BD%E4%BB%A4%E5%85%A8%E7%A7%B0/</loc>
+    <loc>https://www.bitter-gourd.com/2022/05/09/linux%E5%91%BD%E4%BB%A4%E5%85%A8%E7%A7%B0/</loc>
     
     <lastmod>2022-05-09</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/08/test-article/</loc>
+    <loc>https://www.bitter-gourd.com/2022/05/08/test-article/</loc>
     
     <lastmod>2022-05-08</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://www.bitter-gourd.com/about/index.html</loc>
     
     <lastmod>2022-05-08</lastmod>
     
@@ -66,7 +66,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://www.bitter-gourd.com/</loc>
     <lastmod>2022-05-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -74,14 +74,14 @@
 
   
   <url>
-    <loc>http://example.com/tags/%E5%8E%9F%E5%88%9B/</loc>
+    <loc>https://www.bitter-gourd.com/tags/%E5%8E%9F%E5%88%9B/</loc>
     <lastmod>2022-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E6%95%B4%E7%90%86/</loc>
+    <loc>https://www.bitter-gourd.com/tags/%E6%95%B4%E7%90%86/</loc>
     <lastmod>2022-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -90,21 +90,21 @@
 
   
   <url>
-    <loc>http://example.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.bitter-gourd.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/JavaScript/</loc>
+    <loc>https://www.bitter-gourd.com/categories/JavaScript/</loc>
     <lastmod>2022-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/Linux/</loc>
+    <loc>https://www.bitter-gourd.com/categories/Linux/</loc>
     <lastmod>2022-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
