@@ -85,7 +85,7 @@
   color: #6a737d;
 }
 .copy-btn-light {
-  color: #bababa;
+  color: #008b8b;
 }
 .markdown-body pre:hover > .copy-btn {
   opacity: 0.9;
@@ -967,6 +967,7 @@ label {
   padding: 0;
 }
 .markdown-body .hljs pre {
+  background-color:#f5f5f5;
   background-color: initial !important;
 }
 .markdown-body hr {
