@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="bitter-gourd">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="PC端网页特效 元素偏移量offset 12345offsetTopoffsetLeftoffsetWidthoffsetHeightoffsetParent  offsetLeft  offsetTop 以带有定位的父亲为准，如果没有父亲或者父亲没有定位，则以body为准，返回距离上边和距离左边的偏移量。 offsetWidth  offsetHeight可以得到元素的大小（包括宽度和高度），这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PC端网页特效">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/14/PC%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/index.html">
+<meta property="og:site_name" content="Bitter-Gourd">
+<meta property="og:description" content="PC端网页特效 元素偏移量offset 12345offsetTopoffsetLeftoffsetWidthoffsetHeightoffsetParent  offsetLeft  offsetTop 以带有定位的父亲为准，如果没有父亲或者父亲没有定位，则以body为准，返回距离上边和距离左边的偏移量。 offsetWidth  offsetHeight可以得到元素的大小（包括宽度和高度），这">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/javascript.png">
+<meta property="article:published_time" content="2022-05-14T07:54:18.000Z">
+<meta property="article:modified_time" content="2022-05-14T07:55:38.040Z">
+<meta property="article:author" content="bitter-gourd">
+<meta property="article:tag" content="整理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/javascript.png">
+  
+  
+      <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
+  
+  <title>PC端网页特效 - Bitter-Gourd</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.bitter-gourd.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","app_key":"JqtRDL6zUHz12DWKKpoJDEQz","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Bitter-Gourd</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/wallpaper.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="PC端网页特效">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-14 15:54" pubdate>
+        2022年5月14日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      29 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">PC端网页特效</h1>
+            
+            <div class="markdown-body">
+              <h1>PC端网页特效</h1>
+<h3 id="元素偏移量offset">元素偏移量offset</h3>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">offsetTop</span><br><span class="hljs-attribute">offsetLeft</span><br><span class="hljs-attribute">offsetWidth</span><br><span class="hljs-attribute">offsetHeight</span><br><span class="hljs-attribute">offsetParent</span><br></code></pre></div></td></tr></table></figure>
+<ol>
+<li><code>offsetLeft</code>  <code>offsetTop</code> 以带有定位的父亲为准，如果没有父亲或者父亲没有定位，则以body为准，返回距离上边和距离左边的偏移量。</li>
+<li><code>offsetWidth</code>  <code>offsetHeight</code>可以得到元素的大小（包括宽度和高度），这个值是<code>padding + border + width</code>。</li>
+<li><code>offsetParent</code>返回的是带有定位的父亲，否则返回body。</li>
+</ol>
+<h4 id="offset与style的区别"><code>offset</code>与<code>style</code>的区别</h4>
+<ol>
+<li>offset可以得到任意样式表中的样式值，而style只能得到行内样式表中的样式值。</li>
+<li>offset系列得到的数值是没有单位的，而style.width得到的是带有单位的字符串。</li>
+<li>offsetWidth为<code>padding + border + width</code>，而style.width不包含。</li>
+<li>offsetWidth等属性是只读属性，只能获取不能赋值，而style.width是可读写属性，可以获取也可以赋值。</li>
+<li>总结：想获取元素大小用offser，想给元素更改值，用style。</li>
+</ol>
+<h4 id="得到鼠标在某个盒子内的坐标">得到鼠标在某个盒子内的坐标</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">box.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;mousemove&#x27;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)&#123;<br>	<span class="hljs-keyword">var</span> x = e.<span class="hljs-property">pageX</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">offsetLeft</span>;<br>	<span class="hljs-keyword">var</span> y = e.<span class="hljs-property">pageY</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">offsetTop</span>;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+<h4 id="拖动模态框">拖动模态框</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">box.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;mousedown&#x27;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)&#123;<br>	<span class="hljs-keyword">var</span> x = e.<span class="hljs-property">pageX</span> - login.<span class="hljs-property">offsetLeft</span>;<br>	<span class="hljs-keyword">var</span> y = e.<span class="hljs-property">pageY</span> - login.<span class="hljs-property">offsetTop</span>;<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;mousemove&#x27;</span>,move)<br>     <span class="hljs-keyword">function</span> <span class="hljs-title function_">move</span>(<span class="hljs-params">e</span>)&#123;<br>        	login.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = e.<span class="hljs-property">pageX</span> - x + <span class="hljs-string">&#x27;px&#x27;</span>;<br>        	login.<span class="hljs-property">style</span>.<span class="hljs-property">top</span> = e.<span class="hljs-property">pageY</span> - y + <span class="hljs-string">&#x27;px&#x27;</span>;<br>    &#125;<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListner</span>(<span class="hljs-string">&#x27;mouseup&#x27;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>         	<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&#x27;mousemove&#x27;</span>,move);<br>    &#125;)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+<h3 id="元素可视区client">元素可视区client</h3>
+<p>client系列跟offset系列最大的区别在于其不包括border但包括padding。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">clientTop       返回元素上边框的大小<br>clientLeft		返回元素左边框的大小<br></code></pre></div></td></tr></table></figure>
+<h4 id="flexible源码分析">flexible源码分析</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">(<span class="hljs-keyword">function</span> <span class="hljs-title function_">flexible</span> (<span class="hljs-variable language_">window</span>, <span class="hljs-variable language_">document</span>) &#123;<br>    <span class="hljs-comment">//获取的html根元素&lt;html&gt;</span><br>    <span class="hljs-keyword">var</span> docEl = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span><br>    <span class="hljs-comment">//dpr 物理像素比  前者是移动端，后者是PC端（默认为1）</span><br>    <span class="hljs-keyword">var</span> dpr = <span class="hljs-variable language_">window</span>.<span class="hljs-property">devicePixelRatio</span> || <span class="hljs-number">1</span><br>  <br>    <span class="hljs-comment">// adjust body font size</span><br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">setBodyFontSize</span> () &#123;<br>      <span class="hljs-comment">//如果页面中有body这个元素，就设置body的字体大小</span><br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>) &#123;<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = (<span class="hljs-number">12</span> * dpr) + <span class="hljs-string">&#x27;px&#x27;</span><br>      &#125;<br>      <span class="hljs-comment">//这是为了防止script标签放在body标签之前而没有body标签出现的一种做法。</span><br>      <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, setBodyFontSize)<br>      &#125;<br>    &#125;<br>    <span class="hljs-title function_">setBodyFontSize</span>();<br>  <br>    <span class="hljs-comment">// set 1rem = viewWidth / 10</span><br>    <span class="hljs-comment">// 设置html元素的字体大小</span><br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">setRemUnit</span> () &#123;<br>      <span class="hljs-keyword">var</span> rem = docEl.<span class="hljs-property">clientWidth</span> / <span class="hljs-number">10</span><br>      docEl.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = rem + <span class="hljs-string">&#x27;px&#x27;</span><br>    &#125;<br>  <br>    <span class="hljs-title function_">setRemUnit</span>()<br>  <br>    <span class="hljs-comment">// reset rem unit on page resize</span><br>    <span class="hljs-comment">// 当页面尺寸大小发生变化的时候重新设置rem</span><br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, setRemUnit)<br>    <span class="hljs-comment">// pageshow是页面出现的时候会触发的事件</span><br>    <span class="hljs-comment">// e.persisted 返回的是true 如果这个页面是从缓存取过来的页面，也需要重新计算一下rem的大小</span><br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;pageshow&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      <span class="hljs-keyword">if</span> (e.<span class="hljs-property">persisted</span>) &#123;<br>        <span class="hljs-title function_">setRemUnit</span>()<br>      &#125;<br>    &#125;)<br>  <br>    <span class="hljs-comment">// detect 0.5px supports</span><br>    <span class="hljs-comment">// 原因是有些移动端的浏览器不支持0.5像素的写法</span><br>    <span class="hljs-keyword">if</span> (dpr &gt;= <span class="hljs-number">2</span>) &#123;<br>      <span class="hljs-keyword">var</span> fakeBody = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;body&#x27;</span>)<br>      <span class="hljs-keyword">var</span> testElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>)<br>      testElement.<span class="hljs-property">style</span>.<span class="hljs-property">border</span> = <span class="hljs-string">&#x27;.5px solid transparent&#x27;</span><br>      fakeBody.<span class="hljs-title function_">appendChild</span>(testElement)<br>      docEl.<span class="hljs-title function_">appendChild</span>(fakeBody)<br>      <span class="hljs-keyword">if</span> (testElement.<span class="hljs-property">offsetHeight</span> === <span class="hljs-number">1</span>) &#123;<br>        docEl.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;hairlines&#x27;</span>)<br>      &#125;<br>      docEl.<span class="hljs-title function_">removeChild</span>(fakeBody)<br>    &#125;<br>  &#125;(<span class="hljs-variable language_">window</span>, <span class="hljs-variable language_">document</span>)) <br><br></code></pre></div></td></tr></table></figure>
+<h4 id="pageshow和load的区别"><code>pageshow</code>和<code>load</code>的区别</h4>
+<p>首先需要明白下面三种情况都会触发load事件：</p>
+<ol>
+<li>a标签的超链接。</li>
+<li>F5或者刷新按钮。</li>
+<li>前进后退按钮。</li>
+</ol>
+<p>但是在火狐浏览器中有一个“往返缓存”，这个缓存中不仅保存这页面数据，还保存这DOM和JavaScript的状态，实际上是将整个页面都保存在了内存里面。所有此时后退按钮不能刷新页面。</p>
+<p>此时可以使用<code>pageshow</code>事件来触发，这个事件在页面显示的时候触发，无论页面是否来自缓存，在重新加载页面中，<code>pageshow</code>会在load事件触发后触发；根据事件对象中的persisted来判断是否是缓存中的页面触发的<code>pageshow</code>事件。</p>
+<h3 id="元素滚动scroll">元素滚动scroll</h3>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-keyword">scrollTop	</span>	返回被卷去的上侧距离，返回数值不带单位<br><span class="hljs-keyword">scrollLeft	</span>	返回被卷去的左侧距离，返回数值不带单位<br><span class="hljs-keyword">scrollWidth	</span>	返回自身实际的宽度，不含边框，返回数值不带单位<br><span class="hljs-keyword">scrollHeight	</span>返回自身实际的高度，不含边框，返回数值不带单位<br>window.pageYOffset		页面被卷去的头部长度，返回数值不带单位<br></code></pre></div></td></tr></table></figure>
+<h4 id="页面被卷去头部长度兼容性问题">页面被卷去头部长度兼容性问题</h4>
+<ol>
+<li>声明了<code>DTD</code>，使用<code>document.documentElement.scrollTop</code></li>
+<li>未声明<code>DTD</code>，使用<code>document.body.scrollTop</code></li>
+<li>新方法（IE9开始支持）<code>window.pageYOffset</code>和<code>window.pageXOffset</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getScroll</span>(<span class="hljs-params"></span>)&#123;<br>	<span class="hljs-keyword">return</span>&#123;<br>		<span class="hljs-attr">left</span>:<span class="hljs-variable language_">window</span>.<span class="hljs-property">pageXOffset</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollLeft</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">scrollLetf</span> || <span class="hljs-number">0</span>;<br>		<span class="hljs-attr">top</span>:<span class="hljs-variable language_">window</span>.<span class="hljs-property">pageYOffset</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">scrollTop</span> || <span class="hljs-number">0</span>;<br>	&#125;<br>&#125;<br><span class="hljs-comment">//然后在使用的时候  getScroll().left 或者 getScroll().top </span><br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E7%90%86/">整理</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/13/Web-API/">
+                        <span class="hidden-mobile">Web API</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","appKey":"JqtRDL6zUHz12DWKKpoJDEQz","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>bitter-gourd</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>2022</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/diy/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/Metingjs@1.2/dist/Meting.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
