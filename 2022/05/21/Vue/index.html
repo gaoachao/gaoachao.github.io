@@ -18,25 +18,25 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="长度单位px rem em vh vw 绝对长度 px px是像素值，是一个固定的长度，比如我们的米，厘米一样。 相对长度 为什么我们需要相对长度rem em等？ 固定长度已经不能满足我们现在的需求了。 举例：比如我们在缩小我们屏幕的时候，我们不仅仅是需要缩小我们的盒子的宽高，我们还想要让我们字体大小也随之缩小，这样用户体验会更好一点。 rem rem 与 px 的计算关系 rem的值是px的倍数">
+    <meta name="description" content="Vue Vue简介 什么是Vue？  Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。  Vue的特点   采取组件化模式，提高代码复用率，且让代码更好维护。   声明">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS中的长度单位">
-<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/21/CSS%E4%B8%AD%E7%9A%84%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D/index.html">
+<meta property="og:title" content="Vue">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/21/Vue/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="长度单位px rem em vh vw 绝对长度 px px是像素值，是一个固定的长度，比如我们的米，厘米一样。 相对长度 为什么我们需要相对长度rem em等？ 固定长度已经不能满足我们现在的需求了。 举例：比如我们在缩小我们屏幕的时候，我们不仅仅是需要缩小我们的盒子的宽高，我们还想要让我们字体大小也随之缩小，这样用户体验会更好一点。 rem rem 与 px 的计算关系 rem的值是px的倍数">
+<meta property="og:description" content="Vue Vue简介 什么是Vue？  Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。  Vue的特点   采取组件化模式，提高代码复用率，且让代码更好维护。   声明">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.bitter-gourd.com/img/CSS.png">
-<meta property="article:published_time" content="2022-05-21T04:57:26.000Z">
-<meta property="article:modified_time" content="2022-05-21T05:01:17.893Z">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/Vue.png">
+<meta property="article:published_time" content="2022-05-21T09:26:03.000Z">
+<meta property="article:modified_time" content="2022-05-21T14:09:21.003Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.bitter-gourd.com/img/CSS.png">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/Vue.png">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>CSS中的长度单位 - Bitter-Gourd</title>
+  <title>Vue - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CSS中的长度单位">
+            <span class="h2" id="subtitle" title="Vue">
               
             </span>
 
@@ -197,7 +197,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-21 12:57" pubdate>
+      <time datetime="2022-05-21 17:26" pubdate>
         2022年5月21日 下午
       </time>
     </span>
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      1.1k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16 分钟
+      10 分钟
     </span>
   
 
@@ -254,42 +254,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CSS中的长度单位</h1>
+            <h1 style="display: none">Vue</h1>
             
             <div class="markdown-body">
-              <h1>长度单位px rem em vh vw</h1>
-<h2 id="绝对长度">绝对长度</h2>
-<h3 id="px">px</h3>
-<p>px是像素值，是一个固定的长度，比如我们的米，厘米一样。</p>
-<h2 id="相对长度">相对长度</h2>
-<h3 id="为什么我们需要相对长度rem-em等？">为什么我们需要相对长度rem em等？</h3>
-<p>固定长度已经不能满足我们现在的需求了。</p>
-<p>举例：比如我们在缩小我们屏幕的时候，我们不仅仅是需要缩小我们的盒子的宽高，我们还想要让我们字体大小也随之缩小，这样用户体验会更好一点。</p>
-<h3 id="rem">rem</h3>
-<h4 id="rem-与-px-的计算关系">rem 与 px 的计算关系</h4>
-<p>rem的值是px的倍数</p>
-<p>默认情况下<code>font-size = 16px</code>,那么<code>1rem = 16px</code></p>
-<h4 id="rem-如何修改与px的相对计算关系">rem 如何修改与px的相对计算关系</h4>
-<p>我们可以在并且只能在<strong>html标签</strong>（因为html节点是根节点，就是rem里面的r：root）里面修改<code>font-size : 32px</code>， 从而<code>1rem = 32px</code></p>
-<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">&lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-rem&quot;&gt;rem&lt;/<span class="hljs-selector-tag">div</span>&gt;<br><br><span class="hljs-comment">/* rem的用法 */</span><br><span class="hljs-selector-tag">html</span>&#123;<br>    <span class="hljs-attribute">font-size</span>:<span class="hljs-number">16px</span>;  // <span class="hljs-number">1rem</span> = <span class="hljs-number">16px</span><br>&#125;<br><span class="hljs-selector-class">.div-rem</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">10rem</span>;    // <span class="hljs-number">10rem</span> = <span class="hljs-number">10</span> x <span class="hljs-number">16</span> = <span class="hljs-number">160px</span><br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">10rem</span>;   // <span class="hljs-number">10rem</span> = <span class="hljs-number">10</span> x <span class="hljs-number">16</span> = <span class="hljs-number">160px</span><br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>; // <span class="hljs-number">1rem</span> = <span class="hljs-number">16px</span><br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#a58778</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h3 id="em">em</h3>
-<h4 id="em-与-px-的计算关系">em 与 px 的计算关系</h4>
-<p>em的值是px的倍数</p>
-<p>默认情况下<code>font-size = 16px</code>,那么<code>1em = 16px</code></p>
-<h4 id="em-如何修改与px的相对计算关系">em 如何修改与px的相对计算关系</h4>
-<p>我们可以在自己元素上面修改<code>font-size : 32px</code>， 从而<code>1em = 32px</code></p>
-<p>如果自己元素上面没有设置<code>font-size</code>, 我们也可以在父元素上面设置<code>font-size</code>，从而来影响自己元素（孩子元素）使用的em的值。</p>
-<h5 id="rem-与-em-的区别">rem 与 em 的区别</h5>
-<p>上面也正是rem 与 em的区别：</p>
-<p>rem只能在html标签里面设置rem的依赖的值到底是多少</p>
-<p>而em是可以在自己元素以及父级元素设置em依赖的值到底是多少</p>
-<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">&lt;!<span class="hljs-attr">--em1--</span>&gt;<br>&lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-<span class="hljs-selector-tag">em</span>&quot;&gt;<span class="hljs-selector-tag">em</span>&lt;/<span class="hljs-selector-tag">div</span>&gt;<br><br>&lt;!<span class="hljs-attr">--em2--</span>&gt;<br>&lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-<span class="hljs-selector-tag">em</span>-father&quot;&gt;<br>    &lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-<span class="hljs-selector-tag">em</span>-child&quot;&gt;<span class="hljs-selector-tag">em</span> child&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>&lt;/<span class="hljs-selector-tag">div</span>&gt;<br><br> <span class="hljs-comment">/* em的用法1：自己元素设置font-size的值来当作em的参照值 */</span><br><span class="hljs-selector-class">.div-em</span>&#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">32px</span>;  // <span class="hljs-number">1em</span> = <span class="hljs-number">32px</span><br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">10em</span>;      // <span class="hljs-number">10em</span> = <span class="hljs-number">10</span> x <span class="hljs-number">32</span> = <span class="hljs-number">320px</span><br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">10em</span>;     // <span class="hljs-number">10em</span> = <span class="hljs-number">10</span> x <span class="hljs-number">32</span> = <span class="hljs-number">320px</span><br>    <span class="hljs-attribute">background-color</span>: aquamarine;<br>&#125;<br><br> <span class="hljs-comment">/* em的用法2：子元素不设置，而父级元素设置font-size的值来当作em的参照值 */</span><br><span class="hljs-selector-class">.div-em-father</span>&#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">64px</span>;  // <span class="hljs-number">1em</span> = <span class="hljs-number">64px</span><br>&#125;<br><span class="hljs-selector-class">.div-em-child</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">10em</span>;     // <span class="hljs-number">10em</span> = <span class="hljs-number">10</span> x <span class="hljs-number">64</span> = <span class="hljs-number">640px</span><br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">10em</span>;    // <span class="hljs-number">10em</span> = <span class="hljs-number">10</span> x <span class="hljs-number">64</span> = <span class="hljs-number">640px</span><br>    <span class="hljs-attribute">background-color</span>: cadetblue;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<h3 id="vh-vw">vh vw</h3>
-<p>vh 和 vw 就是根据窗口的宽高，分成100等份，100vh就表示满高，50vh就表示一半高。</p>
-<h5 id="那么vh-和-vw与百分比的区别是什么？">那么vh 和 vw与百分比的区别是什么？</h5>
-<p>百分比是基于父元素的设置而言的，如果父元素为100px，那么子元素100%也就是100px。</p>
-<p>而 vh 和 vw 始终是针对窗口的宽高。</p>
-<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">&lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-vh-vw&quot;&gt;<br>   &lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-vh-vw-child&quot;&gt;&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>&lt;/<span class="hljs-selector-tag">div</span>&gt;<br><br> <span class="hljs-comment">/* vh vw 的用法：视窗最为参照值 */</span><br><span class="hljs-selector-class">.div-vh-vw</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">10vw</span>;  // 视窗宽度的 <span class="hljs-number">1</span>/<span class="hljs-number">10</span><br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">10vh</span>;  // 视窗高度的 <span class="hljs-number">1</span>/<span class="hljs-number">10</span><br>    <span class="hljs-attribute">background-color</span>: pink;<br>&#125;<br><br><span class="hljs-comment">/* %百分比的用法：父元素的宽高作为参照值 */</span><br><span class="hljs-selector-class">.div-vh-vw-child</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">background-color</span>: aliceblue;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <h1>Vue</h1>
+<h2 id="Vue简介">Vue简介</h2>
+<h3 id="什么是Vue？">什么是Vue？</h3>
+<blockquote>
+<p>Vue是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p>
+</blockquote>
+<h3 id="Vue的特点">Vue的特点</h3>
+<ol>
+<li>
+<p>采取组件化模式，提高代码复用率，且让代码更好维护。</p>
+</li>
+<li>
+<p>声明式编码，让编码人员无需直接操作DOM，提高开发效率。</p>
+</li>
+<li>
+<p>使用虚拟DOM+优秀的Diff算法，尽量复用DOM节点。</p>
+</li>
+</ol>
+<h2 id="Vue-cli">Vue-cli</h2>
+<h3 id="初始化项目后文件信息分析">初始化项目后文件信息分析</h3>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm">node_modules文件夹：项目依赖文件夹<br><br><span class="hljs-meta">public</span>文件夹：一般放置一些静态资源（图片），需要注意，放在<span class="hljs-meta">public</span>文件夹中的静态资源，webpack进行打包的时候会原封不动打包到dist文件夹中。<br><br>src文件夹（源代码）：<br>  assets文件夹：一般也是放置静态资源（一般放置多个组件共用的静态资源），放置在assets文件夹里面的静态资源，在webpack打包的时候，会把静态资源当做一个模块，打包<span class="hljs-keyword">JS</span>文件里面。<br>  conponents文件夹：一般放置的是非路由组件（全局组件）<br>  app<span class="hljs-number">.</span>vue：唯一的根组件，vue当中的组件（.vue）<br>  main<span class="hljs-number">.</span><span class="hljs-keyword">js</span>：程序入口文件，也是整个程序当中最先执行的文件。<br>  <br>babel<span class="hljs-number">.</span>config<span class="hljs-number">.</span><span class="hljs-keyword">js</span>：配置文件（babel相关）<br><br>package<span class="hljs-number">.</span>json文件：项目信息，记录项目叫什么，有什么依赖<br><br>package-<span class="hljs-keyword">lock</span><span class="hljs-number">.</span>json：缓存性文件<br></code></pre></div></td></tr></table></figure>
+<h3 id="项目配置">项目配置</h3>
+<h4 id="项目运行后浏览器自动打开">项目运行后浏览器自动打开</h4>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-comment">//&quot;serve&quot;: &quot;vue-cli-service serve &quot;,</span><br>    <span class="hljs-attr">&quot;serve&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vue-cli-service serve --open&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vue-cli-service build&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;lint&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vue-cli-service lint&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="eslint校验功能关闭"><code>eslint</code>校验功能关闭</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">//在根目录下创建 vue.config.js 文件</span><br>modules <span class="hljs-built_in">exports</span> = &#123;<br>	<span class="hljs-attr">linkOnSave</span>:<span class="hljs-literal">false</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="src文件夹简写方式，配置别名为"><code>src</code>文件夹简写方式，配置别名为@</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">//jsconfig.json</span><br><span class="hljs-string">&quot;paths&quot;</span>: &#123;<br>      <span class="hljs-string">&quot;@/*&quot;</span>: [<br>        <span class="hljs-string">&quot;src/*&quot;</span><br>      ]<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -299,7 +294,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/CSS%E5%92%8CHTML/">CSS和HTML</a>
+                      <a class="hover-with-bg" href="/categories/Vue/">Vue</a>
                     
                   </div>
                 
@@ -324,18 +319,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/21/Vue/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vue</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/19/git/">
-                        <span class="hidden-mobile">git</span>
+                      <a href="/2022/05/21/CSS%E4%B8%AD%E7%9A%84%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D/">
+                        <span class="hidden-mobile">CSS中的长度单位</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
