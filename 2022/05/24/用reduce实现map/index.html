@@ -18,25 +18,25 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CSS用法杂记 transition 语法：transition: property duration timing-function delay;    值 描述     transition-property 规定设置过渡效果的 CSS 属性的名称   transition-duration 规定完成过渡效果需要多少秒或毫秒   transition-timing-function 规定速度效">
+    <meta name="description" content="用reduce实现map Array.map 用法 123var new_array &#x3D; arr.map(function callback(currentValue[, index[, array]]) &amp;#123; &#x2F;&#x2F; Return element for new_array &amp;#125;[, thisArg]) 如果 thisArg 参数提供给map，则会被用作回调函数的this值。否则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS用法杂记">
-<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/24/CSS%E7%94%A8%E6%B3%95%E6%9D%82%E8%AE%B0/index.html">
+<meta property="og:title" content="用reduce实现map">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/24/%E7%94%A8reduce%E5%AE%9E%E7%8E%B0map/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="CSS用法杂记 transition 语法：transition: property duration timing-function delay;    值 描述     transition-property 规定设置过渡效果的 CSS 属性的名称   transition-duration 规定完成过渡效果需要多少秒或毫秒   transition-timing-function 规定速度效">
+<meta property="og:description" content="用reduce实现map Array.map 用法 123var new_array &#x3D; arr.map(function callback(currentValue[, index[, array]]) &amp;#123; &#x2F;&#x2F; Return element for new_array &amp;#125;[, thisArg]) 如果 thisArg 参数提供给map，则会被用作回调函数的this值。否则">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.bitter-gourd.com/img/CSS.jpg">
-<meta property="article:published_time" content="2022-05-24T09:35:51.000Z">
-<meta property="article:modified_time" content="2022-05-24T13:13:19.857Z">
+<meta property="og:image" content="https://www.bitter-gourd.com/%E9%9D%A2%E7%BB%8FQ&A.jpg">
+<meta property="article:published_time" content="2022-05-24T13:18:02.000Z">
+<meta property="article:modified_time" content="2022-05-24T14:20:59.910Z">
 <meta property="article:author" content="bitter-gourd">
-<meta property="article:tag" content="整理">
+<meta property="article:tag" content="面经">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.bitter-gourd.com/img/CSS.jpg">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/%E9%9D%A2%E7%BB%8FQ&A.jpg">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>CSS用法杂记 - Bitter-Gourd</title>
+  <title>用reduce实现map - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CSS用法杂记">
+            <span class="h2" id="subtitle" title="用reduce实现map">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-24 17:35" pubdate>
-        2022年5月24日 下午
+      <time datetime="2022-05-24 21:18" pubdate>
+        2022年5月24日 晚上
       </time>
     </span>
   
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      276 字
+      1.5k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      13 分钟
     </span>
   
 
@@ -254,40 +254,61 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CSS用法杂记</h1>
+            <h1 style="display: none">用reduce实现map</h1>
             
             <div class="markdown-body">
-              <h1>CSS用法杂记</h1>
-<h3 id="transition">transition</h3>
-<p>语法：<strong>transition: property duration timing-function delay;</strong></p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>transition-property</td>
-<td>规定设置过渡效果的 CSS 属性的名称</td>
-</tr>
-<tr>
-<td>transition-duration</td>
-<td>规定完成过渡效果需要多少秒或毫秒</td>
-</tr>
-<tr>
-<td>transition-timing-function</td>
-<td>规定速度效果的速度曲线</td>
-</tr>
-<tr>
-<td>transition-delay</td>
-<td>定义过渡效果何时开始</td>
-</tr>
-</tbody>
-</table>
-<h3 id="element-classList-toggle-属性名">element.classList.toggle(属性名)</h3>
-<p>十分灵活的用法，如果某个DOM元素没有X属性添加X属性，如果存在X属性则删除X属性。</p>
+              <h1>用reduce实现map</h1>
+<h3 id="Array-map">Array.map</h3>
+<h4 id="用法">用法</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> new_array = arr.<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">callback</span>(<span class="hljs-params">currentValue[, index[, array]]</span>) &#123;<br> <span class="hljs-comment">// Return element for new_array </span><br>&#125;[, thisArg])<br></code></pre></div></td></tr></table></figure>
+<p>如果 <code>thisArg</code> 参数提供给<code>map</code>，则会被用作回调函数的<code>this</code>值。否则 <code>undefined</code> 会被用作回调函数的<code>this</code>值。</p>
+<h4 id="参数">参数</h4>
+<ul>
+<li>
+<p><code>callback</code></p>
+<p>生成新数组元素的函数，使用三个参数：<code>currentValue</code> 为<code>callback</code> 数组中正在处理的当前元素。<code>index</code>（可选）<code>callback</code> 数组中正在处理的当前元素的索引。<code>array</code>（可选）<code>map</code> 方法调用的数组。</p>
+</li>
+<li>
+<p><code>thisArg</code>（可选）</p>
+<p>执行 <code>callback</code> 函数时值被用作<code>this</code>。</p>
+</li>
+</ul>
+<h3 id="Array-prototype-Mymap"><code>Array.prototype.Mymap()</code></h3>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">Mymap</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">fn,thisArg</span>)&#123;<br>    <span class="hljs-keyword">const</span> result = [];<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">previous,current,index,array</span>) =&gt;</span> &#123;<br>        result[index] = fn.<span class="hljs-title function_">call</span>(thisArg,array[index],index,array);<br>    &#125;,<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1>手写reduce</h1>
+<h3 id="array-reduce">array.reduce()</h3>
+<h4 id="用法-2">用法</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">previousValue, currentValue, currentIndex, array</span>) =&gt;</span> &#123; <span class="hljs-comment">/* ... */</span> &#125;, initialValue)<br></code></pre></div></td></tr></table></figure>
+<h4 id="参数-2">参数</h4>
+<ul>
+<li>
+<p><code>callbackFn</code></p>
+<p>一个 “reducer” 函数，包含四个参数：</p>
+<ol>
+<li>
+<p><code>previousValue</code>：上一次调用 <code>callbackFn</code> 时的返回值。在第一次调用时，若指定了初始值 <code>initialValue</code>，其值则为 <code>initialValue</code>，否则为数组索引为 0 的元素 <code>array[0]</code>。</p>
+</li>
+<li>
+<p><code>currentValue</code>：数组中正在处理的元素。在第一次调用时，若指定了初始值 <code>initialValue</code>，其值则为数组索引为 0 的元素 <code>array[0]</code>，否则为 <code>array[1]</code></p>
+</li>
+<li>
+<p><code>currentIndex</code>：数组中正在处理的元素的索引。若指定了初始值 <code>initialValue</code>，则起始索引号为 0，否则从索引 1 起始。</p>
+</li>
+<li>
+<p><code>array</code>：用于遍历的数组。</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code>initialValue</code> （可选）</p>
+<p>作为第一次调用 <code>callback</code> 函数时参数 <em>previousValue</em> 的值。若指定了初始值 <code>initialValue</code>，则 <code>currentValue</code> 则将使用数组第一个元素；否则 <code>previousValue</code> 将使用数组第一个元素，而 <code>currentValue</code> 将使用数组第二个元素。</p>
+</li>
+</ul>
+<h3 id="Myreduce"><code>Myreduce()</code></h3>
+<h4 id="代码">代码</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">Myreduce</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">fn,initialValue</span>) &#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> fn !== <span class="hljs-string">&#x27;function&#x27;</span>)&#123;<br>         <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;第一个参数必须为一个函数&#x27;</span>);<br>         <span class="hljs-keyword">return</span> ;<br>    &#125;<br>	<span class="hljs-keyword">let</span> previousValue = initialValue || <span class="hljs-variable language_">this</span>[<span class="hljs-number">0</span>];<br>	<span class="hljs-keyword">const</span> currentIndex = initialValue ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = currentIndex;i &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">length</span>;i++)&#123;<br>		previousValue = <span class="hljs-title function_">fn</span>(previousValue,<span class="hljs-variable language_">this</span>[i],i,<span class="hljs-variable language_">this</span>);<br>	&#125;<br>	<span class="hljs-keyword">return</span> previousInitial;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="测试结果">测试结果</h4>
+<p><img src="test.jpg" srcset="/img/loading.gif" lazyload alt="测试结果"></p>
 
             </div>
             <hr>
@@ -297,7 +318,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/CSS%E5%92%8CHTML/">CSS和HTML</a>
+                      <a class="hover-with-bg" href="/categories/Q-A/">Q&A</a>
                     
                   </div>
                 
@@ -305,7 +326,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E7%90%86/">整理</a>
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a>
                     
                   </div>
                 
@@ -322,18 +343,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/24/%E7%94%A8reduce%E5%AE%9E%E7%8E%B0map/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">用reduce实现map</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/24/flex%E5%B1%9E%E6%80%A7/">
-                        <span class="hidden-mobile">flex属性</span>
+                      <a href="/2022/05/24/CSS%E7%94%A8%E6%B3%95%E6%9D%82%E8%AE%B0/">
+                        <span class="hidden-mobile">CSS用法杂记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
