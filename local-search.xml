@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>CSS用法杂记</title>
+    <link href="/2022/05/24/CSS%E7%94%A8%E6%B3%95%E6%9D%82%E8%AE%B0/"/>
+    <url>/2022/05/24/CSS%E7%94%A8%E6%B3%95%E6%9D%82%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1>CSS用法杂记</h1><h3 id="transition">transition</h3><p>语法：<strong>transition: property duration timing-function delay;</strong></p><table><thead><tr><th>值</th><th>描述</th></tr></thead><tbody><tr><td>transition-property</td><td>规定设置过渡效果的 CSS 属性的名称</td></tr><tr><td>transition-duration</td><td>规定完成过渡效果需要多少秒或毫秒</td></tr><tr><td>transition-timing-function</td><td>规定速度效果的速度曲线</td></tr><tr><td>transition-delay</td><td>定义过渡效果何时开始</td></tr></tbody></table><h3 id="element-classList-toggle-属性名">element.classList.toggle(属性名)</h3><p>十分灵活的用法，如果某个DOM元素没有X属性添加X属性，如果存在X属性则删除X属性。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CSS和HTML</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>整理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>flex属性</title>
     <link href="/2022/05/24/flex%E5%B1%9E%E6%80%A7/"/>
     <url>/2022/05/24/flex%E5%B1%9E%E6%80%A7/</url>
