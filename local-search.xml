@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>知识点汇总</title>
+    <link href="/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/"/>
+    <url>/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</url>
+    
+    <content type="html"><![CDATA[<h1>前端</h1><h2 id="JavaScript">JavaScript</h2><ul><li>[x] 原型链</li><li>[ ] 继承</li><li>[ ] 作用域</li><li>[ ] 闭包</li><li>[ ] 变量提升</li><li>[ ] this指向</li><li>[ ] 立即执行函数</li><li>[ ] instanceof原理</li><li>[ ] bind实现</li><li>[ ] apply和call</li><li>[ ] 事件循环机制</li><li>[ ] promise</li><li>[ ] 柯里化</li><li>[ ] new操作符</li></ul><h2 id="CSS">CSS</h2><ul><li>[ ] BFC</li><li>[ ] position</li><li>[ ] flex布局</li><li>[ ] css优先级</li><li>[ ] CSS选择器</li><li>[ ] 盒子模型</li><li>[x] 双飞翼、圣杯布局</li><li>[ ] CSS3新特性</li><li>[ ] div居中</li><li>[ ] 浮动</li></ul><h2 id="HTML">HTML</h2><ul><li>[ ] 行内元素、块级元素</li><li>[ ] DOM树</li><li>[ ] 事件模型</li><li>[ ] 缓存策略</li></ul><h2 id="浏览器">浏览器</h2><h1>框架</h1><h2 id="vue">vue</h2><ul><li>[ ] 数据绑定原理</li><li>[ ] computed和watch</li><li>[ ] slot</li><li>[ ] next tick原理</li><li>[ ] keep alive</li></ul><h2 id="react">react</h2><h2 id="Redux">Redux</h2><h1>算法</h1><h1>后端</h1><h2 id="Node">Node</h2><ul><li>[ ] 模块机制</li><li>[ ] require原理</li><li>[ ] 事件循环</li><li>[ ] cluster原理</li><li>[ ] 流机制</li><li>[ ] pipe原理</li><li>[ ] 守护进程</li><li>[ ] 进程通信</li><li>[ ] 异常处理</li></ul><h2 id="计算机网络">计算机网络</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Q&amp;A</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>圣杯布局和双飞翼布局</title>
     <link href="/2022/05/29/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/"/>
     <url>/2022/05/29/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/</url>

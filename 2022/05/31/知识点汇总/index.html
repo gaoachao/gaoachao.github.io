@@ -18,23 +18,43 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="苦瓜的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://www.bitter-gourd.com/archives/2022/index.html">
+    <meta name="description" content="前端 JavaScript  [x] 原型链 [ ] 继承 [ ] 作用域 [ ] 闭包 [ ] 变量提升 [ ] this指向 [ ] 立即执行函数 [ ] instanceof原理 [ ] bind实现 [ ] apply和call [ ] 事件循环机制 [ ] promise [ ] 柯里化 [ ] new操作符  CSS  [ ] BFC [ ] position [ ] flex布局 [">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识点汇总">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="苦瓜的个人博客">
+<meta property="og:description" content="前端 JavaScript  [x] 原型链 [ ] 继承 [ ] 作用域 [ ] 闭包 [ ] 变量提升 [ ] this指向 [ ] 立即执行函数 [ ] instanceof原理 [ ] bind实现 [ ] apply和call [ ] 事件循环机制 [ ] promise [ ] 柯里化 [ ] new操作符  CSS  [ ] BFC [ ] position [ ] flex布局 [">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/%E9%9D%A2%E7%BB%8FQ&A.jpg">
+<meta property="article:published_time" content="2022-05-30T17:22:37.000Z">
+<meta property="article:modified_time" content="2022-05-30T17:36:18.687Z">
 <meta property="article:author" content="bitter-gourd">
+<meta property="article:tag" content="面经">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/%E9%9D%A2%E7%BB%8FQ&A.jpg">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>归档 - Bitter-Gourd</title>
+  <title>知识点汇总 - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -66,7 +86,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -167,9 +187,51 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="知识点汇总">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-31 01:22" pubdate>
+        2022年5月31日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      378 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -182,100 +244,182 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 22 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">知识点汇总</span>
-      <time style="float: right;">05-31</time>
-    </a>
-  
-    
-    <a href="/2022/05/29/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">圣杯布局和双飞翼布局</span>
-      <time style="float: right;">05-29</time>
-    </a>
-  
-    
-    <a href="/2022/05/24/%E7%94%A8reduce%E5%AE%9E%E7%8E%B0map/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">用reduce实现map</span>
-      <time style="float: right;">05-24</time>
-    </a>
-  
-    
-    <a href="/2022/05/24/CSS%E7%94%A8%E6%B3%95%E6%9D%82%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CSS用法杂记</span>
-      <time style="float: right;">05-24</time>
-    </a>
-  
-    
-    <a href="/2022/05/24/flex%E5%B1%9E%E6%80%A7/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">flex属性</span>
-      <time style="float: right;">05-24</time>
-    </a>
-  
-    
-    <a href="/2022/05/22/CSS%E4%B8%AD-root%E5%92%8Cvar/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CSS中:var和env</span>
-      <time style="float: right;">05-22</time>
-    </a>
-  
-    
-    <a href="/2022/05/21/Vue/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vue</span>
-      <time style="float: right;">05-21</time>
-    </a>
-  
-    
-    <a href="/2022/05/21/CSS%E4%B8%AD%E7%9A%84%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CSS中的长度单位</span>
-      <time style="float: right;">05-21</time>
-    </a>
-  
-    
-    <a href="/2022/05/19/git/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">git</span>
-      <time style="float: right;">05-19</time>
-    </a>
-  
-    
-    <a href="/2022/05/17/Promise/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Promise</span>
-      <time style="float: right;">05-17</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">知识点汇总</h1>
+            
+            <div class="markdown-body">
+              <h1>前端</h1>
+<h2 id="JavaScript">JavaScript</h2>
+<ul>
+<li>[x] 原型链</li>
+<li>[ ] 继承</li>
+<li>[ ] 作用域</li>
+<li>[ ] 闭包</li>
+<li>[ ] 变量提升</li>
+<li>[ ] this指向</li>
+<li>[ ] 立即执行函数</li>
+<li>[ ] instanceof原理</li>
+<li>[ ] bind实现</li>
+<li>[ ] apply和call</li>
+<li>[ ] 事件循环机制</li>
+<li>[ ] promise</li>
+<li>[ ] 柯里化</li>
+<li>[ ] new操作符</li>
+</ul>
+<h2 id="CSS">CSS</h2>
+<ul>
+<li>[ ] BFC</li>
+<li>[ ] position</li>
+<li>[ ] flex布局</li>
+<li>[ ] css优先级</li>
+<li>[ ] CSS选择器</li>
+<li>[ ] 盒子模型</li>
+<li>[x] 双飞翼、圣杯布局</li>
+<li>[ ] CSS3新特性</li>
+<li>[ ] div居中</li>
+<li>[ ] 浮动</li>
+</ul>
+<h2 id="HTML">HTML</h2>
+<ul>
+<li>[ ] 行内元素、块级元素</li>
+<li>[ ] DOM树</li>
+<li>[ ] 事件模型</li>
+<li>[ ] 缓存策略</li>
+</ul>
+<h2 id="浏览器">浏览器</h2>
+<h1>框架</h1>
+<h2 id="vue">vue</h2>
+<ul>
+<li>[ ] 数据绑定原理</li>
+<li>[ ] computed和watch</li>
+<li>[ ] slot</li>
+<li>[ ] next tick原理</li>
+<li>[ ] keep alive</li>
+</ul>
+<h2 id="react">react</h2>
+<h2 id="Redux">Redux</h2>
+<h1>算法</h1>
+<h1>后端</h1>
+<h2 id="Node">Node</h2>
+<ul>
+<li>[ ] 模块机制</li>
+<li>[ ] require原理</li>
+<li>[ ] 事件循环</li>
+<li>[ ] cluster原理</li>
+<li>[ ] 流机制</li>
+<li>[ ] pipe原理</li>
+<li>[ ] 守护进程</li>
+<li>[ ] 进程通信</li>
+<li>[ ] 异常处理</li>
+</ul>
+<h2 id="计算机网络">计算机网络</h2>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2022/page/2/#board">2</a><a class="page-number" href="/archives/2022/page/3/#board">3</a><a class="extend next" rel="next" href="/archives/2022/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Q-A/">Q&A</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/29/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/">
+                        <span class="hidden-mobile">圣杯布局和双飞翼布局</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","appKey":"JqtRDL6zUHz12DWKKpoJDEQz","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -383,6 +527,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
