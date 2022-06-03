@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>手写各类数组方法</title>
+    <link href="/2022/06/03/%E6%89%8B%E5%86%99%E5%90%84%E7%B1%BB%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"/>
+    <url>/2022/06/03/%E6%89%8B%E5%86%99%E5%90%84%E7%B1%BB%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Array-prototype-mySlice"><code>Array.prototype.mySlice()</code></h2><p><strong>手写切片方法</strong></p><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">mySlice</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">start,end</span>)&#123;<br><span class="hljs-keyword">if</span>(start == <span class="hljs-literal">undefined</span>)  start = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">if</span>(end == <span class="hljs-literal">undefined</span>) end = <span class="hljs-variable language_">this</span>.<span class="hljs-property">length</span>;<br><span class="hljs-keyword">const</span> retArray = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(end - start);<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span> ; i &lt; retArray.<span class="hljs-property">length</span>;i++)&#123;<br><span class="hljs-comment">//为了保证不存在的索引保持为empty值</span><br><span class="hljs-comment">//in在数组中可以来检验是否存在该索引&#x27;1 in arr&#x27;：arr数组是否存在索引为1的元素</span><br><span class="hljs-keyword">if</span>(i <span class="hljs-keyword">in</span> <span class="hljs-variable language_">this</span>)&#123;<br>retArray[i] = <span class="hljs-variable language_">this</span>[start + i];<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span> retArray;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Q&amp;A</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>类数组对象如何转化为数组？</title>
+    <link href="/2022/06/03/%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B0%E7%BB%84/"/>
+    <url>/2022/06/03/%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B0%E7%BB%84/</url>
+    
+    <content type="html"><![CDATA[<h1>类数组对象</h1><h2 id="定义">定义</h2><p>类数组对象就是含有<code>length</code>属性的对象，但不是数组。通常来可以用<code>index</code>下标来引用元素。</p><p><strong>常见的类数组：</strong></p><ul><li><strong>普通函数中的 argument 对象</strong>。需要注意的是，箭头函数中不存在这个对象。</li><li><strong>一些获取 Dom 集合的方法</strong>，如 <code>document.querySelectorAll()</code>、 <code>document.getElementsByClassName</code>、<code>document.getElementsByTagName() </code>也会返回类数组对象</li></ul><h1>类数组对象如何转化为数组？</h1><h2 id="Array-prototyle-slice-call">Array.prototyle.slice.call()</h2><hr><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">slice</span>.<span class="hljs-title function_">call</span>(arrlike);<br>[].<span class="hljs-property">slice</span>.<span class="hljs-title function_">call</span>(arrlike);<br></code></pre></div></td></tr></table></figure><p><code>[]</code> 空数组效果同 <code>Array.prototype</code>，因为空数组本身没有 slice 方法，会走原型链拿到 <code>Array.prototype</code> 的方法。</p><p>因为<code>slice</code>方法会返回一个数组，且<code>silce</code>只需要类数组有<code>length</code>属性即可，如果不传入参数，则默认<code>start</code>为0，<code>end</code>为<code>length</code>。</p><h2 id="Array-from">Array.from()</h2><hr><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">arr = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(arrlike);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr);<br></code></pre></div></td></tr></table></figure><p>ES6 新出的方法，可以将类数组对象或者是可迭代对象转换为数组。</p><p>但与<code>Array.prototype.slice</code>不同的是，该方法会将不存在的索引对应的值设置为<code>undefined</code>，而<code>Array.prototype.slice</code>则会设置为<code>empty</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Q&amp;A</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>手写call、apply和bind</title>
     <link href="/2022/06/01/call%E3%80%81apply%E5%92%8Cbind%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <url>/2022/06/01/call%E3%80%81apply%E5%92%8Cbind%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
@@ -33,7 +83,7 @@
     <link href="/2022/06/01/new%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
     <url>/2022/06/01/new%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
     
-    <content type="html"><![CDATA[<h1>new操作符</h1><h2 id="new构造函数时发生了什么？">new构造函数时发生了什么？</h2><ul><li>首先会创建一个对象，这个新对象的<code>__proto__</code>属性指向构造函数的<code>prototype</code>属性</li><li>此时构造函数执行环境的<code>this</code>指向这个新对象</li><li>执行构造函数中的代码，一般是通过<code>this</code>给新对象添加新的成员属性或方法。</li><li>最后判断这个构造函数是否有返回值，如果有返回值且该返回值为对象的话就等于该返回值，如果没有就返回新对象。</li></ul><h2 id="手写new">手写new</h2><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params">func,...args</span>)&#123;<br><span class="hljs-comment">//创建一个新对象，并且指定原型为func.prototype</span><br><span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(func.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);<br><span class="hljs-comment">//让这一次func在执行的时候this指向obj</span><br><span class="hljs-keyword">var</span> ret = func.<span class="hljs-title function_">call</span>(obj,...args);<br><span class="hljs-comment">//看看这个构造函数是否有返回值，如果有返回值且该返回值为对象的话就等于该返回值</span><br><span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> ret === <span class="hljs-string">&#x27;object&#x27;</span> ? ret : obj;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1>new操作符</h1><h2 id="new构造函数时发生了什么？">new构造函数时发生了什么？</h2><ul><li>首先会创建一个空对象，这个新对象的<code>__proto__</code>属性指向构造函数的<code>prototype</code>属性</li><li>此时构造函数执行环境的<code>this</code>指向这个新对象</li><li>执行构造函数中的代码，一般是通过<code>this</code>给新对象添加新的成员属性或方法。</li><li>最后判断这个构造函数是否有返回值，如果有返回值且该返回值为对象的话就等于该返回值，如果没有就返回新对象。</li></ul><h2 id="手写new">手写new</h2><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params">func,...args</span>)&#123;<br><span class="hljs-comment">//创建一个新对象，并且指定原型为func.prototype</span><br><span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(func.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);<br><span class="hljs-comment">//让这一次func在执行的时候this指向obj</span><br><span class="hljs-keyword">var</span> ret = func.<span class="hljs-title function_">call</span>(obj,...args);<br><span class="hljs-comment">//看看这个构造函数是否有返回值，如果有返回值且该返回值为对象的话就等于该返回值</span><br><span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> ret === <span class="hljs-string">&#x27;object&#x27;</span> ? ret : obj;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -108,7 +158,7 @@
     <link href="/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/"/>
     <url>/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</url>
     
-    <content type="html"><![CDATA[<h1>前端</h1><h2 id="JavaScript">JavaScript</h2><ul><li>[x] 原型链</li><li>[ ] 继承</li><li>[ ] 作用域</li><li>[ ] 闭包</li><li>[ ] 变量提升</li><li>[ ] this指向</li><li>[ ] 立即执行函数</li><li>[x] instanceof和typeof</li><li>[x] 手写apply、call和bind</li><li>[ ] 事件循环机制</li><li>[x] Ajax</li><li>[x] promise</li><li>[ ] 柯里化</li><li>[ ] new操作符</li><li>[x] 深拷贝、浅拷贝</li></ul><h3 id="数组方法">数组方法</h3><ul><li>[x] 手写reduce</li><li>[x] 用reduce实现map</li></ul><h2 id="CSS">CSS</h2><ul><li>[ ] BFC</li><li>[ ] position</li><li>[ ] flex布局</li><li>[ ] css优先级</li><li>[ ] CSS选择器</li><li>[ ] 盒子模型</li><li>[x] 双飞翼、圣杯布局</li><li>[ ] CSS3新特性</li><li>[ ] div居中</li><li>[ ] 浮动</li><li>[x] CSS的长度单位</li><li>[x] CSS变量</li></ul><h2 id="HTML">HTML</h2><ul><li>[ ] 行内元素、块级元素</li><li>[ ] DOM树</li><li>[ ] 事件模型</li><li>[ ] 缓存策略</li></ul><h2 id="浏览器">浏览器</h2><h1>框架</h1><h2 id="vue">vue</h2><ul><li>[ ] 数据绑定原理</li><li>[ ] computed和watch</li><li>[ ] slot</li><li>[ ] next tick原理</li><li>[ ] keep alive</li></ul><h2 id="react">react</h2><h2 id="Redux">Redux</h2><h1>算法</h1><h1>后端</h1><h2 id="Node">Node</h2><ul><li>[ ] 模块机制</li><li>[ ] require原理</li><li>[ ] 事件循环</li><li>[ ] cluster原理</li><li>[ ] 流机制</li><li>[ ] pipe原理</li><li>[ ] 守护进程</li><li>[ ] 进程通信</li><li>[ ] 异常处理</li></ul><h2 id="计算机网络">计算机网络</h2>]]></content>
+    <content type="html"><![CDATA[<h1>前端</h1><h2 id="JavaScript">JavaScript</h2><ul><li>[x] 原型链</li><li>[ ] 继承</li><li>[ ] 作用域</li><li>[ ] 闭包</li><li>[ ] 变量提升</li><li>[x] <code>this</code>指向</li><li>[ ] 立即执行函数</li><li>[x] <code>instanceof</code>和<code>typeof</code></li><li>[x] 手写<code>apply</code>、<code>call</code>和<code>bind</code></li><li>[ ] 事件循环机制</li><li>[x] <code>Ajax</code></li><li>[x] <code>promise</code></li><li>[ ] 柯里化</li><li>[x] 手写<code>new</code>操作符</li><li>[x] 深拷贝、浅拷贝</li></ul><h3 id="数组方法">数组方法</h3><ul><li>[x] 手写<code>reduce</code></li><li>[x] 用<code>reduce</code>实现<code>map</code></li><li>[ ] 手写<code>concat</code></li><li>[x] 手写<code>slice</code></li><li>[x] 类数组转化为数组</li></ul><h3 id="TypeScript">TypeScript</h3><h2 id="CSS">CSS</h2><ul><li>[ ] <code>BFC</code></li><li>[ ] <code>position</code></li><li>[ ] <code>flex</code>布局</li><li>[ ] <code>css</code>优先级</li><li>[ ] <code>CSS</code>选择器</li><li>[ ] 盒子模型</li><li>[x] 双飞翼、圣杯布局</li><li>[ ] <code>CSS3</code>新特性</li><li>[ ] <code>div</code>居中</li><li>[ ] 浮动</li><li>[x] CSS的长度单位</li><li>[x] CSS变量</li></ul><h2 id="HTML">HTML</h2><ul><li>[ ] 行内元素、块级元素</li><li>[ ] DOM树</li><li>[ ] 事件模型</li><li>[ ] 缓存策略</li></ul><h2 id="浏览器">浏览器</h2><h1>框架</h1><h2 id="vue">vue</h2><ul><li>[ ] 数据绑定原理</li><li>[ ] <code>computed</code>和<code>watch</code></li><li>[ ] <code>slot</code></li><li>[ ] <code>next tick</code>原理</li><li>[ ] <code>keep alive</code></li></ul><h2 id="react">react</h2><h2 id="Redux">Redux</h2><h1>算法</h1><h1>后端</h1><h2 id="Node">Node</h2><ul><li>[ ] 模块机制</li><li>[ ] require原理</li><li>[ ] 事件循环</li><li>[ ] cluster原理</li><li>[ ] 流机制</li><li>[ ] pipe原理</li><li>[ ] 守护进程</li><li>[ ] 进程通信</li><li>[ ] 异常处理</li></ul><h2 id="计算机网络">计算机网络</h2>]]></content>
     
     
     <categories>
