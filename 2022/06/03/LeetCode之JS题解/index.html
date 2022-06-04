@@ -18,16 +18,16 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="bitter-gourd的LeetCode题解 滑动窗口 序号 3.无重复字符的最长子串 30.串联所有单词的子串 76.最小覆盖子串 159.至多包含两个不同字符的最长子串 209.长度最小的子数组 239.滑动窗口最大值 567.字符串的排列 632.最小区间 727.最小窗口子序列 题目 3.无重复字符的最长子串 123456789101112131415161718&#x2F;** * @param">
+    <meta name="description" content="bitter-gourd的LeetCode题解 滑动窗口 序号 3.无重复字符的最长子串 30.串联所有单词的子串 76.最小覆盖子串 159.至多包含两个不同字符的最长子串 209.长度最小的子数组 239.滑动窗口最大值 567.字符串的排列 632.最小区间 727.最小窗口子序列 题目 3.无重复字符的最长子串(medium) 123456789101112131415161718&#x2F;**">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode之JS题解">
 <meta property="og:url" content="https://www.bitter-gourd.com/2022/06/03/LeetCode%E4%B9%8BJS%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="bitter-gourd的LeetCode题解 滑动窗口 序号 3.无重复字符的最长子串 30.串联所有单词的子串 76.最小覆盖子串 159.至多包含两个不同字符的最长子串 209.长度最小的子数组 239.滑动窗口最大值 567.字符串的排列 632.最小区间 727.最小窗口子序列 题目 3.无重复字符的最长子串 123456789101112131415161718&#x2F;** * @param">
+<meta property="og:description" content="bitter-gourd的LeetCode题解 滑动窗口 序号 3.无重复字符的最长子串 30.串联所有单词的子串 76.最小覆盖子串 159.至多包含两个不同字符的最长子串 209.长度最小的子数组 239.滑动窗口最大值 567.字符串的排列 632.最小区间 727.最小窗口子序列 题目 3.无重复字符的最长子串(medium) 123456789101112131415161718&#x2F;**">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/LeetCode.jpg">
 <meta property="article:published_time" content="2022-06-03T13:42:50.000Z">
-<meta property="article:modified_time" content="2022-06-03T13:52:48.243Z">
+<meta property="article:modified_time" content="2022-06-04T07:24:58.613Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      487 字
+      1.2k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      10 分钟
     </span>
   
 
@@ -270,9 +270,10 @@
 <p>632.最小区间</p>
 <p>727.最小窗口子序列</p>
 <h3 id="题目">题目</h3>
-<h4 id="3-无重复字符的最长子串">3.无重复字符的最长子串</h4>
+<h4 id="3-无重复字符的最长子串-medium">3.无重复字符的最长子串(medium)</h4>
 <figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">string</span>&#125; <span class="hljs-variable">s</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> lengthOfLongestSubstring = <span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) &#123;<br>    <span class="hljs-keyword">let</span> res=<span class="hljs-number">0</span>,temp=[];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i &lt; s.<span class="hljs-property">length</span>;i++)&#123;<br>        <span class="hljs-keyword">if</span>(!temp.<span class="hljs-title function_">includes</span>(s[i]))&#123;<br>            temp.<span class="hljs-title function_">push</span>(s[i]);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            temp.<span class="hljs-title function_">shift</span>();<br>            i--;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res,temp.<span class="hljs-property">length</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
-<h4 id="30-串联所有单词的子串">30.串联所有单词的子串</h4>
+<h4 id="30-串联所有单词的子串-hard">30.串联所有单词的子串(hard)</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">string</span>&#125; <span class="hljs-variable">s</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">string[]</span>&#125; <span class="hljs-variable">words</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number[]</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> findSubstring = <span class="hljs-keyword">function</span>(<span class="hljs-params">s, words</span>) &#123;<br>    <span class="hljs-keyword">const</span> wordSize = words[<span class="hljs-number">0</span>].<span class="hljs-property">length</span>;<br>    <span class="hljs-keyword">const</span> substringLen = wordSize * words.<span class="hljs-property">length</span>;<br>    <span class="hljs-keyword">const</span> wordsCount = &#123;&#125;;<br>    words.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">w</span> =&gt;</span> (wordsCount[w] = (wordsCount[w] || <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>));<br>    <span class="hljs-keyword">const</span> res = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;= s.<span class="hljs-property">length</span> - substringLen; i++) &#123;<br>        <span class="hljs-keyword">const</span> tempCount = &#123;...wordsCount&#125;;<br>        <span class="hljs-keyword">let</span> count = words.<span class="hljs-property">length</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i; j &lt; i + substringLen; j += wordSize) &#123;<br>            <span class="hljs-keyword">const</span> word = s.<span class="hljs-title function_">slice</span>(j, j + wordSize);<br>            <span class="hljs-keyword">if</span> (!(word <span class="hljs-keyword">in</span> tempCount) || tempCount[word] &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br>            tempCount[word]--;<br>            count--;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) res.<span class="hljs-title function_">push</span>(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -307,12 +308,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/06/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">浏览器存储方式比较</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
                       <a href="/2022/06/03/div%E5%B1%85%E4%B8%AD/">
-                        <span class="hidden-mobile">div居中</span>
+                        <span class="hidden-mobile">水平垂直居中</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
