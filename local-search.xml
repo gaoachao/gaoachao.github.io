@@ -558,7 +558,7 @@
     <link href="/2022/05/15/VScode-Tips/"/>
     <url>/2022/05/15/VScode-Tips/</url>
     
-    <content type="html"><![CDATA[<h1>VScode Tips</h1><h3 id="好用的快捷键">好用的快捷键</h3><h3 id="前端相关">前端相关</h3><h4 id="快速创建自带框架的html文件">快速创建自带框架的html文件</h4><p>先新建一个.html文件，有两种方法可以创建：</p><ol><li><strong><code>！+ 回车</code></strong></li></ol><p><img src="!+%E5%9B%9E%E8%BD%A6.png" alt="!+回车"></p><ol start="2"><li><code>html:5</code></li></ol><p><img src="html.png" alt="html:5"></p><p>两种方式创建的自带框架的html文件是一样的。</p><p><img src="%E7%BB%93%E6%9E%9C.png" alt="结果"></p><h3 id="提高生产力">提高生产力</h3><ol><li><p><strong><code>Alt+Shift+L</code></strong> ：编辑相同的内容</p></li><li><p><code>Alt+鼠标</code>：多行编辑</p></li><li><p><code>Ctrl+Shift+i</code>：linux下格式化代码</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1>VScode Tips</h1><h3 id="好用的快捷键">好用的快捷键</h3><h3 id="前端相关">前端相关</h3><h4 id="快速创建自带框架的html文件">快速创建自带框架的html文件</h4><p>先新建一个.html文件，有两种方法可以创建：</p><ol><li><strong><code>！+ 回车</code></strong></li></ol><p><img src="!+%E5%9B%9E%E8%BD%A6.png" alt="!+回车"></p><ol start="2"><li><code>html:5</code></li></ol><p><img src="html.png" alt="html:5"></p><p>两种方式创建的自带框架的html文件是一样的。</p><p><img src="%E7%BB%93%E6%9E%9C.png" alt="结果"></p><h3 id="提高生产力">提高生产力</h3><ol><li><p><strong><code>Alt+Shift+L</code></strong> ：编辑相同的内容</p></li><li><p><strong><code>Alt+鼠标</code></strong>：多行编辑</p></li><li><p><strong><code>Ctrl+Shift+i</code></strong>：linux下格式化代码</p></li></ol>]]></content>
     
     
     <categories>
