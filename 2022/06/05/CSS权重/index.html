@@ -18,16 +18,16 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前端 JavaScript  [x] 原型链 [x] 继承（备注：没有笔记产出，因为红宝书上写的太赞了） [ ] 作用域 [ ] 闭包 [ ] 变量提升 [ ] 上下文 [x] this指向（备注：this真是太难了！） [ ] 立即执行函数 [x] instanceof和typeof [x] 手写apply、call和bind（备注：bind理解较差） [ ] 事件循环机制 [x] Ajax [">
+    <meta name="description" content="CSS选择器 CSS权重 从0开始，一个行内样式+1000，一个id选择器+100，一个元素选择器class或者伪类+10，一个标签选择器或者伪元素+1，通配符+0。 !important等于正无穷。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识点清单">
-<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:title" content="CSS选择器和CSS权重">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/06/05/CSS%E6%9D%83%E9%87%8D/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="前端 JavaScript  [x] 原型链 [x] 继承（备注：没有笔记产出，因为红宝书上写的太赞了） [ ] 作用域 [ ] 闭包 [ ] 变量提升 [ ] 上下文 [x] this指向（备注：this真是太难了！） [ ] 立即执行函数 [x] instanceof和typeof [x] 手写apply、call和bind（备注：bind理解较差） [ ] 事件循环机制 [x] Ajax [">
+<meta property="og:description" content="CSS选择器 CSS权重 从0开始，一个行内样式+1000，一个id选择器+100，一个元素选择器class或者伪类+10，一个标签选择器或者伪元素+1，通配符+0。 !important等于正无穷。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/%E9%9D%A2%E7%BB%8FQ&A.jpg">
-<meta property="article:published_time" content="2022-05-30T17:22:37.000Z">
-<meta property="article:modified_time" content="2022-06-07T14:02:30.443Z">
+<meta property="article:published_time" content="2022-06-05T13:28:02.000Z">
+<meta property="article:modified_time" content="2022-06-05T13:35:37.133Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="面经">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>知识点清单 - Bitter-Gourd</title>
+  <title>CSS选择器和CSS权重 - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="知识点清单">
+            <span class="h2" id="subtitle" title="CSS选择器和CSS权重">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-31 01:22" pubdate>
-        2022年5月31日 凌晨
+      <time datetime="2022-06-05 21:28" pubdate>
+        2022年6月5日 晚上
       </time>
     </span>
   
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      677 字
+      97 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      1 分钟
     </span>
   
 
@@ -254,96 +254,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">知识点清单</h1>
+            <h1 style="display: none">CSS选择器和CSS权重</h1>
             
             <div class="markdown-body">
-              <h1>前端</h1>
-<h2 id="JavaScript">JavaScript</h2>
-<ul>
-<li>[x] 原型链</li>
-<li>[x] 继承（备注：没有笔记产出，因为红宝书上写的太赞了）</li>
-<li>[ ] 作用域</li>
-<li>[ ] 闭包</li>
-<li>[ ] 变量提升</li>
-<li>[ ] 上下文</li>
-<li>[x] <code>this</code>指向（备注：this真是太难了！）</li>
-<li>[ ] 立即执行函数</li>
-<li>[x] <code>instanceof</code>和<code>typeof</code></li>
-<li>[x] 手写<code>apply</code>、<code>call</code>和<code>bind</code>（备注：bind理解较差）</li>
-<li>[ ] 事件循环机制</li>
-<li>[x] <code>Ajax</code></li>
-<li>[x] <code>promise</code></li>
-<li>[x] 柯里化（备注：存在占位符情况理解较差）</li>
-<li>[x] 手写<code>new</code>操作符</li>
-<li>[x] 深拷贝、浅拷贝</li>
-</ul>
-<h3 id="数组方法">数组方法</h3>
-<ul>
-<li>[x] 手写<code>reduce</code></li>
-<li>[x] 用<code>reduce</code>实现<code>map</code></li>
-<li>[ ] 手写<code>concat</code></li>
-<li>[x] 手写<code>slice</code></li>
-<li>[ ] 手写<code>splice</code></li>
-<li>[ ] 手写<code>indexOf</code>(字符串方法)</li>
-<li>[x] 类数组转化为数组</li>
-</ul>
-<h3 id="TypeScript">TypeScript</h3>
-<h2 id="CSS">CSS</h2>
-<ul>
-<li>[ ] <code>BFC</code></li>
-<li>[ ] <code>position</code></li>
-<li>[ ] <code>flex</code>布局</li>
-<li>[x] <code>css</code>权重</li>
-<li>[x] <code>CSS</code>选择器</li>
-<li>[x] 盒子模型</li>
-<li>[x] 双飞翼、圣杯布局</li>
-<li>[ ] <code>CSS3</code>新特性</li>
-<li>[x] <code>div</code>居中</li>
-<li>[ ] 浮动</li>
-<li>[x] CSS的长度单位</li>
-<li>[x] CSS变量</li>
-<li>[ ] CSS画三角形</li>
-<li>[ ] 前端水印</li>
-<li>[ ] 毛玻璃效果</li>
-</ul>
-<h2 id="HTML">HTML</h2>
-<ul>
-<li>[ ] 行内元素、块级元素</li>
-<li>[ ] DOM树</li>
-<li>[ ] 事件模型</li>
-<li>[ ] 缓存策略</li>
-</ul>
-<h2 id="浏览器">浏览器</h2>
-<ul>
-<li>[x] 存储方式比较（cookie、localStorage、sessionStorage）</li>
-<li>[ ] 浏览器渲染机制</li>
-</ul>
-<h1>框架</h1>
-<h2 id="vue">vue</h2>
-<ul>
-<li>[ ] 数据绑定原理</li>
-<li>[ ] <code>computed</code>和<code>watch</code></li>
-<li>[ ] <code>slot</code></li>
-<li>[ ] <code>next tick</code>原理</li>
-<li>[ ] <code>keep alive</code></li>
-</ul>
-<h2 id="react">react</h2>
-<h2 id="Redux">Redux</h2>
-<h1>算法</h1>
-<h1>后端</h1>
-<h2 id="Node">Node</h2>
-<ul>
-<li>[ ] 模块机制</li>
-<li>[ ] require原理</li>
-<li>[ ] 事件循环</li>
-<li>[ ] cluster原理</li>
-<li>[ ] 流机制</li>
-<li>[ ] pipe原理</li>
-<li>[ ] 守护进程</li>
-<li>[ ] 进程通信</li>
-<li>[ ] 异常处理</li>
-</ul>
-<h2 id="计算机网络">计算机网络</h2>
+              <h1>CSS选择器</h1>
+<h1>CSS权重</h1>
+<p>从0开始，一个行内样式+1000，一个id选择器+100，一个元素选择器class或者伪类+10，一个标签选择器或者伪元素+1，通配符+0。</p>
+<p><code>!important</code>等于正无穷。</p>
 
             </div>
             <hr>
@@ -378,18 +295,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/31/instanceof%E5%92%8Ctypeof/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">instanceof和typeof有什么区别？</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/29/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/">
-                        <span class="hidden-mobile">圣杯布局和双飞翼布局</span>
+                      <a href="/2022/06/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83/">
+                        <span class="hidden-mobile">浏览器存储方式比较</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
