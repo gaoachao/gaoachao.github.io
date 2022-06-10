@@ -360,6 +360,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.bitter-gourd.com/tags/demo/</loc>
+    <lastmod>2022-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -420,6 +427,13 @@
   
   <url>
     <loc>https://www.bitter-gourd.com/categories/LeetCode/</loc>
+    <lastmod>2022-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.bitter-gourd.com/categories/CSS%E5%8A%A8%E7%94%BB/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
