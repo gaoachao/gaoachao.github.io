@@ -18,23 +18,43 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="苦瓜的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签 - 原创">
-<meta property="og:url" content="https://www.bitter-gourd.com/tags/%E5%8E%9F%E5%88%9B/index.html">
+    <meta name="description" content="obs+FFmpeg制作gif 前言  bitter-gourd发现在写demo的博客的时候需要用到一些gif 于是决定折腾一下怎么制作一张gif 用到的方法是：obs-studio录屏+FFmpeg制作  准备 下载obs-studio 1yay -S obs-studio 具体步骤  先使用obs-studio录制视频，导出MP4格式的视频 再在视频中寻找需要制作成gif的那一段，记录时间。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="obs+FFmpeg制作gif">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/06/10/obs-FFmpeg%E5%88%B6%E4%BD%9Cgif/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="苦瓜的个人博客">
+<meta property="og:description" content="obs+FFmpeg制作gif 前言  bitter-gourd发现在写demo的博客的时候需要用到一些gif 于是决定折腾一下怎么制作一张gif 用到的方法是：obs-studio录屏+FFmpeg制作  准备 下载obs-studio 1yay -S obs-studio 具体步骤  先使用obs-studio录制视频，导出MP4格式的视频 再在视频中寻找需要制作成gif的那一段，记录时间。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/FFmpeg.png">
+<meta property="article:published_time" content="2022-06-10T11:33:27.000Z">
+<meta property="article:modified_time" content="2022-06-10T11:50:45.106Z">
 <meta property="article:author" content="bitter-gourd">
+<meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/FFmpeg.png">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>标签 - 原创 - Bitter-Gourd</title>
+  <title>obs+FFmpeg制作gif - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -66,7 +86,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -167,17 +187,55 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="标签 - 原创">
+            <span class="h2" id="subtitle" title="obs+FFmpeg制作gif">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-06-10 19:33" pubdate>
+        2022年6月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      614 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -186,64 +244,141 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 5 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/06/10/obs-FFmpeg%E5%88%B6%E4%BD%9Cgif/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">obs+FFmpeg制作gif</span>
-      <time style="float: right;">06-10</time>
-    </a>
-  
-    
-    <a href="/2022/05/15/VScode-Tips/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">VScode Tips</span>
-      <time style="float: right;">05-15</time>
-    </a>
-  
-    
-    <a href="/2022/05/10/github%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">github上显示图片</span>
-      <time style="float: right;">05-10</time>
-    </a>
-  
-    
-    <a href="/2022/05/09/js%E4%B8%AD-%E5%92%8C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">js中===和==</span>
-      <time style="float: right;">05-09</time>
-    </a>
-  
-    
-    <a href="/2022/05/09/Problems-Using-Arch/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Problems-Using-Arch</span>
-      <time style="float: right;">05-09</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">obs+FFmpeg制作gif</h1>
+            
+            <div class="markdown-body">
+              <h1>obs+FFmpeg制作gif</h1>
+<h2 id="前言">前言</h2>
+<blockquote>
+<p>bitter-gourd发现在写demo的博客的时候需要用到一些gif</p>
+<p>于是决定折腾一下怎么制作一张gif</p>
+<p>用到的方法是：obs-studio录屏+FFmpeg制作</p>
+</blockquote>
+<h2 id="准备">准备</h2>
+<h3 id="下载obs-studio">下载obs-studio</h3>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">yay -S obs-studio</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="具体步骤">具体步骤</h2>
+<ol>
+<li>先使用<code>obs-studio</code>录制视频，导出MP4格式的视频</li>
+<li>再在视频中寻找需要制作成gif的那一段，记录时间。</li>
+<li>再打开shell，直接使用<code>FFmpeg</code>，一行命令行即可。</li>
+</ol>
+<h2 id="FFmpeg命令行">FFmpeg命令行</h2>
+<figure class="highlight inform7"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs inform7">ffmpeg -ss 30 -t 3 -i input.mp4 -vf <span class="hljs-string">&quot;fps=10,scale=320:-1:flags=lanczos,split<span class="hljs-subst">[s0]</span><span class="hljs-subst">[s1]</span>;<span class="hljs-subst">[s0]</span>palettegen<span class="hljs-subst">[p]</span>;<span class="hljs-subst">[s1]</span><span class="hljs-subst">[p]</span>paletteuse&quot;</span> -loop 0 output.gif<br></code></pre></div></td></tr></table></figure>
+<p>**<code>-ss 30</code>：**跳过前30秒</p>
+<p>**<code>-t 3</code>：**剪一段3秒的视频作为gif的时长</p>
+<p>**<code>fps</code>：**过滤器设置帧速率，实例中使用每秒 10 帧的速率。</p>
+<p>**<code>scale</code>：**设置gif的大小，320px的宽度，并在保持纵横比的同时自动确定高度。</p>
+<p>**<code>palettegen and paletteuse</code>：**调色板生成和调色板使用过滤器将生成并使用输入生成的自定义调色板。</p>
+<p>**<code>-loop 0</code>：**使用 -loop 输出选项控制循环， 值 0 是无限循环，-1 是不循环，而 1 将循环一次意味着它将播放两次。 比如值为 10 将导致 GIF 播放 11 次。</p>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">开发环境配置</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8E%9F%E5%88%9B/">原创</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/10/CSS%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E6%9C%BA/">
+                        <span class="hidden-mobile">CSS实现打字机</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","appKey":"JqtRDL6zUHz12DWKKpoJDEQz","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -351,6 +486,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
