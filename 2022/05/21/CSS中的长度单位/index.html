@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/CSS.jpg">
 <meta property="article:published_time" content="2022-05-21T04:57:26.000Z">
-<meta property="article:modified_time" content="2022-05-22T13:53:41.410Z">
+<meta property="article:modified_time" content="2022-06-10T08:18:18.822Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.1k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16 分钟
+      18 分钟
     </span>
   
 
@@ -290,6 +290,12 @@
 <p>百分比是基于父元素的设置而言的，如果父元素为100px，那么子元素100%也就是100px。</p>
 <p>而 vh 和 vw 始终是针对窗口的宽高。</p>
 <figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">&lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-vh-vw&quot;&gt;<br>   &lt;<span class="hljs-selector-tag">div</span> class=&quot;<span class="hljs-selector-tag">div</span>-vh-vw-child&quot;&gt;&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>&lt;/<span class="hljs-selector-tag">div</span>&gt;<br><br> <span class="hljs-comment">/* vh vw 的用法：视窗最为参照值 */</span><br><span class="hljs-selector-class">.div-vh-vw</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">10vw</span>;  // 视窗宽度的 <span class="hljs-number">1</span>/<span class="hljs-number">10</span><br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">10vh</span>;  // 视窗高度的 <span class="hljs-number">1</span>/<span class="hljs-number">10</span><br>    <span class="hljs-attribute">background-color</span>: pink;<br>&#125;<br><br><span class="hljs-comment">/* %百分比的用法：父元素的宽高作为参照值 */</span><br><span class="hljs-selector-class">.div-vh-vw-child</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">background-color</span>: aliceblue;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="vmin-vmax">vmin vmax</h3>
+<p>vmin它取的是相对于视口高度或宽度中*<strong>较小值</strong>的1/100</p>
+<p>vmax它取的是相对于视口高度或宽度中<strong>较大值</strong>的1/100</p>
+<h3 id="ex-ch">ex ch</h3>
+<p>ex在开发中很少使用，1ex等于小写字母“x”的高度，但不同字体x的高度可能不同,取em值的一半作为ex值。</p>
+<p>ch与ex类似，被定义为数字0的宽度。当无法确定数字0宽度时，取em值的一半作为ch值。</p>
 
             </div>
             <hr>

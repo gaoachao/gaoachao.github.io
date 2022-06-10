@@ -18,25 +18,25 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前端 JavaScript  [x] 原型链 [x] 继承（备注：没有笔记产出，因为红宝书上写的太赞了） [ ] 作用域 [ ] 闭包 [ ] 变量提升 [ ] 上下文 [x] this指向（备注：this真是太难了！） [ ] 立即执行函数 [x] instanceof和typeof [x] 手写apply、call和bind（备注：bind理解较差） [ ] 事件循环机制 [x] Ajax [">
+    <meta name="description" content="CSS实现打字效果 前言  CSS+HTML写的打字效果  实现效果  代码 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识点清单">
-<meta property="og:url" content="https://www.bitter-gourd.com/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:title" content="CSS实现打字机">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/06/10/CSS%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E6%9C%BA/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="前端 JavaScript  [x] 原型链 [x] 继承（备注：没有笔记产出，因为红宝书上写的太赞了） [ ] 作用域 [ ] 闭包 [ ] 变量提升 [ ] 上下文 [x] this指向（备注：this真是太难了！） [ ] 立即执行函数 [x] instanceof和typeof [x] 手写apply、call和bind（备注：bind理解较差） [ ] 事件循环机制 [x] Ajax [">
+<meta property="og:description" content="CSS实现打字效果 前言  CSS+HTML写的打字效果  实现效果  代码 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.bitter-gourd.com/img/%E9%9D%A2%E7%BB%8FQ&A.jpg">
-<meta property="article:published_time" content="2022-05-30T17:22:37.000Z">
-<meta property="article:modified_time" content="2022-06-10T08:00:33.129Z">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/CSS.jpg">
+<meta property="article:published_time" content="2022-06-10T10:10:01.000Z">
+<meta property="article:modified_time" content="2022-06-10T11:07:41.173Z">
 <meta property="article:author" content="bitter-gourd">
-<meta property="article:tag" content="面经">
+<meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.bitter-gourd.com/img/%E9%9D%A2%E7%BB%8FQ&A.jpg">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/CSS.jpg">
   
   
       <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>知识点清单 - Bitter-Gourd</title>
+  <title>CSS实现打字机 - Bitter-Gourd</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="知识点清单">
+            <span class="h2" id="subtitle" title="CSS实现打字机">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-31 01:22" pubdate>
-        2022年5月31日 凌晨
+      <time datetime="2022-06-10 18:10" pubdate>
+        2022年6月10日 晚上
       </time>
     </span>
   
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      698 字
+      1.4k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      12 分钟
     </span>
   
 
@@ -254,104 +254,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">知识点清单</h1>
+            <h1 style="display: none">CSS实现打字机</h1>
             
             <div class="markdown-body">
-              <h1>前端</h1>
-<h2 id="JavaScript">JavaScript</h2>
-<ul>
-<li>[x] 原型链</li>
-<li>[x] 继承（备注：没有笔记产出，因为红宝书上写的太赞了）</li>
-<li>[ ] 作用域</li>
-<li>[ ] 闭包</li>
-<li>[ ] 变量提升</li>
-<li>[ ] 上下文</li>
-<li>[x] <code>this</code>指向（备注：this真是太难了！）</li>
-<li>[ ] 立即执行函数</li>
-<li>[x] <code>instanceof</code>和<code>typeof</code></li>
-<li>[x] 手写<code>apply</code>、<code>call</code>和<code>bind</code>（备注：bind理解较差）</li>
-<li>[ ] 事件循环机制</li>
-<li>[x] <code>Ajax</code></li>
-<li>[x] <code>promise</code></li>
-<li>[x] 柯里化（备注：存在占位符情况理解较差）</li>
-<li>[x] 手写<code>new</code>操作符</li>
-<li>[x] 深拷贝、浅拷贝</li>
-</ul>
-<h3 id="数组方法">数组方法</h3>
-<ul>
-<li>[x] 手写<code>reduce</code></li>
-<li>[x] 用<code>reduce</code>实现<code>map</code></li>
-<li>[ ] 手写<code>concat</code></li>
-<li>[x] 手写<code>slice</code></li>
-<li>[ ] 手写<code>splice</code></li>
-<li>[ ] 手写<code>indexOf</code>(字符串方法)</li>
-<li>[x] 类数组转化为数组</li>
-</ul>
-<h3 id="TypeScript">TypeScript</h3>
-<h2 id="CSS">CSS</h2>
-<ul>
-<li>[ ] <code>BFC</code></li>
-<li>[ ] <code>position</code></li>
-<li>[ ] <code>flex</code>布局</li>
-<li>[x] <code>css</code>权重</li>
-<li>[x] <code>CSS</code>选择器</li>
-<li>[x] 盒子模型</li>
-<li>[x] 双飞翼、圣杯布局</li>
-<li>[ ] <code>CSS3</code>新特性</li>
-<li>[x] <code>div</code>居中</li>
-<li>[ ] 浮动</li>
-<li>[x] CSS的长度单位</li>
-<li>[x] CSS变量</li>
-</ul>
-<h3 id="一些效果">一些效果</h3>
-<ul>
-<li>[ ] CSS画三角形</li>
-<li>[ ] 前端水印</li>
-<li>[ ] 毛玻璃效果</li>
-<li>[ ] 打字效果</li>
-</ul>
-<h2 id="HTML">HTML</h2>
-<ul>
-<li>[ ] 行内元素、块级元素</li>
-<li>[ ] DOM树</li>
-<li>[ ] 事件模型</li>
-<li>[ ] 缓存策略</li>
-</ul>
-<h2 id="浏览器">浏览器</h2>
-<ul>
-<li>[x] 存储方式比较（cookie、localStorage、sessionStorage）</li>
-<li>[ ] 浏览器渲染机制</li>
-</ul>
-<h2 id="前端安全">前端安全</h2>
-<ul>
-<li>[ ] XSS攻击</li>
-</ul>
-<h1>框架</h1>
-<h2 id="vue">vue</h2>
-<ul>
-<li>[ ] 数据绑定原理</li>
-<li>[ ] <code>computed</code>和<code>watch</code></li>
-<li>[ ] <code>slot</code></li>
-<li>[ ] <code>next tick</code>原理</li>
-<li>[ ] <code>keep alive</code></li>
-</ul>
-<h2 id="react">react</h2>
-<h2 id="Redux">Redux</h2>
-<h1>算法</h1>
-<h1>后端</h1>
-<h2 id="Node">Node</h2>
-<ul>
-<li>[ ] 模块机制</li>
-<li>[ ] require原理</li>
-<li>[ ] 事件循环</li>
-<li>[ ] cluster原理</li>
-<li>[ ] 流机制</li>
-<li>[ ] pipe原理</li>
-<li>[ ] 守护进程</li>
-<li>[ ] 进程通信</li>
-<li>[ ] 异常处理</li>
-</ul>
-<h2 id="计算机网络">计算机网络</h2>
+              <h1>CSS实现打字效果</h1>
+<h2 id="前言">前言</h2>
+<blockquote>
+<p>CSS+HTML写的打字效果</p>
+</blockquote>
+<h2 id="实现效果">实现效果</h2>
+<p><img src="typing.gif" srcset="/img/loading.gif" lazyload alt="打字效果"></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-class">.typing</span> &#123;</span><br><span class="language-css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">80vh</span>;</span><br><span class="language-css">            <span class="hljs-attribute">display</span>: flex;</span><br><span class="language-css">            <span class="hljs-attribute">align-items</span>: center;</span><br><span class="language-css">            <span class="hljs-attribute">justify-content</span>: center;</span><br><span class="language-css">        &#125;</span><br><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-class">.typing-effect</span> &#123;</span><br><span class="language-css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">22ch</span>;  <span class="hljs-comment">/*字母数量 用ch表示0的宽度 配合overflow:hidden可以让steps的每一帧展出一个字符*/</span></span><br><span class="language-css">            <span class="hljs-attribute">white-space</span>: nowrap;  <span class="hljs-comment">/*不换行*/</span></span><br><span class="language-css">            <span class="hljs-attribute">overflow</span>: hidden;   <span class="hljs-comment">/*把超出部分隐藏*/</span></span><br><span class="language-css">            <span class="hljs-attribute">border-right</span>: <span class="hljs-number">3px</span> solid; <span class="hljs-comment">/*不要对这个效果基本没影响*/</span></span><br><span class="language-css">            <span class="hljs-attribute">font-family</span>: monospace; <span class="hljs-comment">/*设置等宽字体*/</span></span><br><span class="language-css">            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;  </span><br><span class="language-css">            <span class="hljs-attribute">animation</span>: typing <span class="hljs-number">2s</span> <span class="hljs-built_in">steps</span>(<span class="hljs-number">22</span>), effect .<span class="hljs-number">5s</span> step-end infinite alternate;</span><br><span class="language-css">            <span class="hljs-comment">/* typing表示打字类型 2s打完 总共22步 </span></span><br><span class="hljs-comment"><span class="language-css">             * effect让光标持续跳动 0.5秒出现0.5秒消失（每1秒跳一下）</span></span><br><span class="hljs-comment"><span class="language-css">             * step-end表示在每一帧的最后 infinite表示一直跳动下去</span></span><br><span class="hljs-comment"><span class="language-css">             * 如果真的要一一对应应该让effect为2/22秒，这样光标跳动一下打一个字</span></span><br><span class="hljs-comment"><span class="language-css">             * alternate动画交替反向运行，反向运行时，动画按步后退 */</span></span><br><span class="language-css">        &#125;   </span><br><span class="language-css"></span><br><span class="language-css">        <span class="hljs-keyword">@keyframes</span> typing &#123;</span><br><span class="language-css">            <span class="hljs-selector-tag">from</span> &#123;</span><br><span class="language-css">                <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;</span><br><span class="language-css">            &#125;</span><br><span class="language-css">        &#125;</span><br><span class="language-css">        <span class="hljs-comment">/*使typing这个div从0宽到设定宽度(字母数+ch)*/</span></span><br><span class="language-css"></span><br><span class="language-css">        <span class="hljs-keyword">@keyframes</span> effect &#123;</span><br><span class="language-css">            <span class="hljs-number">50%</span> &#123;</span><br><span class="language-css">                 <span class="hljs-attribute">border-color</span>: transparent; </span><br><span class="language-css">            &#125;</span><br><span class="language-css">        &#125;</span><br><span class="language-css">        <span class="hljs-comment">/*设置effect这个div中的动画*/</span></span><br><span class="language-css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;typing&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;typing-effect&quot;</span>&gt;</span>Typing effect for text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p><strong>CodeSnap版</strong></p>
+<p><img src="typing.jpg" srcset="/img/loading.gif" lazyload alt="CodeSnap（凑篇幅）)"></p>
 
             </div>
             <hr>
@@ -361,7 +277,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Q-A/">Q&A</a>
+                      <a class="hover-with-bg" href="/categories/CSS%E5%92%8CHTML/">CSS和HTML</a>
                     
                   </div>
                 
@@ -369,7 +285,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E7%90%86/">整理</a>
                     
                   </div>
                 
@@ -386,18 +302,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/31/instanceof%E5%92%8Ctypeof/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">instanceof和typeof有什么区别？</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/29/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/">
-                        <span class="hidden-mobile">圣杯布局和双飞翼布局</span>
+                      <a href="/2022/06/05/CSS%E6%9D%83%E9%87%8D/">
+                        <span class="hidden-mobile">CSS选择器和CSS权重</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
