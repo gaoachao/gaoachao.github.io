@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/FFmpeg.png">
 <meta property="article:published_time" content="2022-06-10T11:33:27.000Z">
-<meta property="article:modified_time" content="2022-06-10T11:52:17.272Z">
+<meta property="article:modified_time" content="2022-06-10T11:53:17.682Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      590 字
+      597 字
     </span>
   
 
@@ -277,8 +277,8 @@
 <figure class="highlight inform7"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs inform7">ffmpeg -ss 30 -t 3 -i input.mp4 -vf <span class="hljs-string">&quot;fps=10,scale=320:-1:flags=lanczos,split<span class="hljs-subst">[s0]</span><span class="hljs-subst">[s1]</span>;<span class="hljs-subst">[s0]</span>palettegen<span class="hljs-subst">[p]</span>;<span class="hljs-subst">[s1]</span><span class="hljs-subst">[p]</span>paletteuse&quot;</span> -loop 0 output.gif<br></code></pre></div></td></tr></table></figure>
 <p><code>-ss 30</code>：跳过前30秒</p>
 <p><code>-t 3</code>：剪一段3秒的视频作为gif的时长</p>
-<p><code>fps</code>：过滤器设置帧速率，实例中使用每秒 10 帧的速率。</p>
-<p><code>scale</code>：设置gif的大小，320px的宽度，并在保持纵横比的同时自动确定高度。</p>
+<p><code>fps=10</code>：过滤器设置帧速率，实例中使用每秒 10 帧的速率。</p>
+<p><code>scale=320</code>：设置gif的大小，320px的宽度，并在保持纵横比的同时自动确定高度。</p>
 <p><code>palettegen and paletteuse</code>：调色板生成和调色板使用过滤器将生成并使用输入生成的自定义调色板。</p>
 <p><code>-loop 0</code>：使用 -loop 输出选项控制循环， 值 0 是无限循环，-1 是不循环，而 1 将循环一次意味着它将播放两次。 比如值为 10 将导致 GIF 播放 11 次。</p>
 
