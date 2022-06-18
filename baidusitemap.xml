@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.bitter-gourd.com/2022/05/15/VScode-Tips/</loc>
+    <lastmod>2022-06-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.bitter-gourd.com/2022/05/09/Problems-Using-Arch/</loc>
     <lastmod>2022-06-14</lastmod>
   </url>
@@ -23,10 +27,6 @@
   <url>
     <loc>https://www.bitter-gourd.com/2022/05/31/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/</loc>
     <lastmod>2022-06-10</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bitter-gourd.com/2022/05/15/VScode-Tips/</loc>
-    <lastmod>2022-06-09</lastmod>
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/06/05/CSS%E6%9D%83%E9%87%8D/</loc>
