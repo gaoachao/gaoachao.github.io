@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/typescript.png">
 <meta property="article:published_time" content="2022-06-20T01:40:47.000Z">
-<meta property="article:modified_time" content="2022-06-27T08:47:00.318Z">
+<meta property="article:modified_time" content="2022-06-27T08:51:18.295Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12k 字
+      13k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      103 分钟
+      106 分钟
     </span>
   
 
@@ -432,7 +432,7 @@
 <p>在定义函数或者类的时候，如果遇到类型不明确则可以使用泛型</p>
 <p>与any相比好处是不会关闭TS的类型检查</p>
 </blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> fn&lt;T&gt;(<span class="hljs-attr">a</span>:T):T&#123;<br>	<span class="hljs-keyword">return</span> a;<br>&#125;<br><br><span class="hljs-comment">//可以直接调用具有泛型的函数</span><br><span class="hljs-title function_">fn</span>(a);  <span class="hljs-comment">//不指定泛型，但是TS会自动对类型进行推断</span><br>fn&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">&#x27;hello&#x27;</span>); <span class="hljs-comment">//手动指定泛型</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">function</span> fn&lt;T&gt;(<span class="hljs-attr">a</span>:T):T&#123;<br>	<span class="hljs-keyword">return</span> a;<br>&#125;<br><br><span class="hljs-comment">//可以直接调用具有泛型的函数</span><br><span class="hljs-title function_">fn</span>(a);  <span class="hljs-comment">//不指定泛型，但是TS会自动对类型进行推断</span><br>fn&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">&#x27;hello&#x27;</span>); <span class="hljs-comment">//手动指定泛型</span><br><br><span class="hljs-comment">//泛型可以同时指定多个</span><br><span class="hljs-keyword">function</span> fn2&lt;T,K&gt;(<span class="hljs-attr">a</span>:T,<span class="hljs-attr">b</span>:K):T&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b);<br>    <span class="hljs-keyword">return</span> a;<br>&#125;<br>fn2&lt;<span class="hljs-built_in">number</span>,<span class="hljs-built_in">string</span>&gt;(<span class="hljs-attr">a</span>:<span class="hljs-number">123</span>,<span class="hljs-attr">b</span>:<span class="hljs-string">&#x27;hello&#x27;</span>);<br><br><span class="hljs-comment">//也可以限定泛型的范围</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Inter</span>&#123;<br>    <span class="hljs-attr">length</span>:<span class="hljs-built_in">number</span>;<br>&#125;<br><span class="hljs-comment">//T extends Inter 表示泛型T必须是Inter实现类（子类）</span><br><span class="hljs-keyword">function</span> fn3&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Inter</span>&gt;(<span class="hljs-attr">a</span>:T):<span class="hljs-built_in">number</span>&#123;<br>    <span class="hljs-keyword">return</span> a.<span class="hljs-property">length</span>;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Myclass</span>&lt;T&gt;&#123;<br>    <span class="hljs-attr">name</span>:T;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name:T</span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
