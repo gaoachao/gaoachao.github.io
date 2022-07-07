@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>archlinux副屏设置</title>
+    <link href="/2022/07/07/archlinux%E5%89%AF%E5%B1%8F%E8%AE%BE%E7%BD%AE/"/>
+    <url>/2022/07/07/archlinux%E5%89%AF%E5%B1%8F%E8%AE%BE%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1>ArchLinux副屏设置</h1><h2 id="命令行">命令行</h2><h3 id="查看准备就绪的显示屏">查看准备就绪的显示屏</h3><figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">xrandr</span><br></code></pre></div></td></tr></table></figure><p>找到主屏幕和副屏幕</p><p>Bitter-Gourd的主屏幕和副屏幕分别是：<code>eDP-1</code>和<code>DP-2</code></p><h3 id="设置电脑屏幕为主屏幕">设置电脑屏幕为主屏幕</h3><figure class="highlight brainfuck"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs brainfuck"><span class="hljs-comment">xrandr</span> <span class="hljs-literal">--</span><span class="hljs-comment">output eDP</span><span class="hljs-literal">-</span><span class="hljs-comment">1</span> <span class="hljs-literal">--</span><span class="hljs-comment">auto</span> <span class="hljs-literal">--</span><span class="hljs-comment">primary</span><br></code></pre></div></td></tr></table></figure><h3 id="设置副屏幕显示">设置副屏幕显示</h3><figure class="highlight brainfuck"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs brainfuck"><span class="hljs-comment">xrandr</span> <span class="hljs-literal">--</span><span class="hljs-comment">output DP</span><span class="hljs-literal">-</span><span class="hljs-comment">2</span> <span class="hljs-literal">--</span><span class="hljs-comment">auto</span><br></code></pre></div></td></tr></table></figure><p>此时两个屏幕是同步的</p><h3 id="设置屏幕拓展">设置屏幕拓展</h3><figure class="highlight brainfuck"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs brainfuck"><span class="hljs-comment">xrandr</span> <span class="hljs-literal">--</span><span class="hljs-comment">output DP</span><span class="hljs-literal">-</span><span class="hljs-comment">2</span> <span class="hljs-literal">--</span><span class="hljs-comment">auto</span> <span class="hljs-literal">--</span><span class="hljs-comment">output eDP</span><span class="hljs-literal">-</span><span class="hljs-comment">1</span> <span class="hljs-literal">--</span><span class="hljs-comment">auto</span> <span class="hljs-literal">--</span><span class="hljs-comment">right</span><span class="hljs-literal">-</span><span class="hljs-comment">of DP</span><span class="hljs-literal">-</span><span class="hljs-comment">2</span> <br></code></pre></div></td></tr></table></figure><p>设置<code>DP-2</code>为主屏幕且<code>eDP-1</code>在<code>DP-2</code>的右侧，此时终端模拟器在<code>DP-2</code>上</p><figure class="highlight brainfuck"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs brainfuck"><span class="hljs-comment">xrandr</span> <span class="hljs-literal">--</span><span class="hljs-comment">output DP</span><span class="hljs-literal">-</span><span class="hljs-comment">2</span> <span class="hljs-literal">--</span><span class="hljs-comment">auto</span> <span class="hljs-literal">--</span><span class="hljs-comment">output eDP</span><span class="hljs-literal">-</span><span class="hljs-comment">1</span> <span class="hljs-literal">--</span><span class="hljs-comment">auto</span> <span class="hljs-literal">--</span><span class="hljs-comment">left</span><span class="hljs-literal">-</span><span class="hljs-comment">of DP</span><span class="hljs-literal">-</span><span class="hljs-comment">2</span> <br></code></pre></div></td></tr></table></figure><p>设置<code>DP-2</code>为主屏幕且<code>eDP-1</code>在<code>DP-2</code>的左侧，此时终端模拟器在<code>eDP-1</code>上</p><h3 id="关闭某个屏幕">关闭某个屏幕</h3><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">xrandr</span> --output eDP-<span class="hljs-number">1</span> --<span class="hljs-literal">off</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发环境配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>原创</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>枚举类</title>
     <link href="/2022/07/06/%E6%9E%9A%E4%B8%BE%E7%B1%BB/"/>
     <url>/2022/07/06/%E6%9E%9A%E4%B8%BE%E7%B1%BB/</url>
