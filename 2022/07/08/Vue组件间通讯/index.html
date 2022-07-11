@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/Vue.png">
 <meta property="article:published_time" content="2022-07-08T09:26:17.000Z">
-<meta property="article:modified_time" content="2022-07-08T12:14:57.368Z">
+<meta property="article:modified_time" content="2022-07-09T07:08:53.090Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      3.5k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16 分钟
+      30 分钟
     </span>
   
 
@@ -276,10 +276,28 @@
 <p>如果想要使它成为原生事件，可以使用<code>@click.native</code></p>
 <h3 id="自定义事件的解绑-2">自定义事件的解绑</h3>
 <figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-comment">//在父组件中：</span><br>&lt;<span class="hljs-title class_">Son</span> <span class="hljs-meta">@PostName</span>=<span class="hljs-string">&quot;getSonName&quot;</span> <span class="hljs-meta">@PostAge</span>=<span class="hljs-string">&quot;getSonAge&quot;</span>/&gt; <br><span class="hljs-attr">methods</span>:&#123;<br>	<span class="hljs-title function_">getSonName</span>(<span class="hljs-params">name</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name);<br>	&#125;,<br>	<span class="hljs-title function_">getSonAge</span>(<span class="hljs-params">age</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(age);<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//在子组件中</span><br><span class="hljs-attr">methods</span>:&#123;<br>	<span class="hljs-title function_">sendSonName</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-variable language_">this</span>.$emit(<span class="hljs-string">&#x27;PostName&#x27;</span>,<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>,...params)<br>	&#125;,<br>	<span class="hljs-title function_">unbind</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-variable language_">this</span>.$off(<span class="hljs-string">&#x27;PostName&#x27;</span>); <br>		<span class="hljs-comment">//仅解绑一个自定义事件</span><br>		<span class="hljs-variable language_">this</span>.$off([<span class="hljs-string">&#x27;PostAge&#x27;</span>,<span class="hljs-string">&#x27;PostName&#x27;</span>]);<br>		<span class="hljs-comment">//解绑多个自定义事件,用数组的形式</span><br>		<span class="hljs-variable language_">this</span>.$off();<br>		<span class="hljs-comment">//不传参，即解绑所有的自定义事件</span><br>	&#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
-<h2 id="全局事件总线">全局事件总线</h2>
+<h2 id="全局事件总线（Global-EventBus）">全局事件总线（Global EventBus）</h2>
 <blockquote>
-<p>能实现任意组件间的通讯</p>
+<p>能利用全局事件总线实现任意组件间通讯</p>
+<p>但由于父传子可以使用<code>props</code>，因此EventBus主要用于爷孙和兄弟之间</p>
 </blockquote>
+<ol>
+<li>需要一个 特殊的对象，特点如下
+<ul>
+<li>所有的组件都能访问到</li>
+<li>具有<code>$on</code>  <code>$emit</code>  <code>$off</code>  方法</li>
+</ul>
+</li>
+<li>目前已知<code>VueComponent.prototype</code>的<code>__proto__</code>指向<code>Vue.prototype</code>，而所有<code>VueComponent</code>的实例对象的<code>__proto__</code>指向<code>VueComponent.prototype</code>，因此只要在<code>Vue.prototype</code>中添加这个对象，并且让这个对象具有相应的方法。</li>
+<li>并且我们知道<code>Vue</code>的实例对象上，具有这些方法。但是我们也知道需要在正确的时间点将这个对象创建出来，并放在<code>Vue.prototype</code>上，不然会出现已经别的组件上的代码已经执行完毕，这个对象还没有创建出来进行事件传递的尴尬。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">//main.js中</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>	<span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app&#x27;</span>,<br>	<span class="hljs-attr">render</span>:<span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> <span class="hljs-title function_">h</span>(<span class="hljs-title class_">App</span>),<br>	<span class="hljs-title function_">beforeCreate</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-title class_">Vue</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">$bus</span> = <span class="hljs-variable language_">this</span>;<br>		<span class="hljs-comment">//this就是Vue的实例对象也就是vm</span><br>	&#125;<br>&#125;)<br><br><span class="hljs-comment">// 实现B向A传递数据</span><br><span class="hljs-comment">// 兄弟组件A中</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	<span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-variable language_">this</span>.<span class="hljs-property">$bus</span>.$on(<span class="hljs-string">&#x27;hello&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">data</span>)=&gt;</span>&#123;<br>			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;A收到了数据&#x27;</span>，data)；<br>		&#125;)<br>	&#125;,<br>	<span class="hljs-title function_">beforeDestroy</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-variable language_">this</span>.<span class="hljs-property">$bus</span>.$off(<span class="hljs-string">&#x27;hello&#x27;</span>);<br>		<span class="hljs-comment">//在组件销毁之前解除对 &#x27;hello&#x27;事件的绑定,即解绑当前组件所用到的事件</span><br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//兄弟组件B中</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	<span class="hljs-attr">methods</span>:&#123;<br>		<span class="hljs-title function_">sendData</span>(<span class="hljs-params"></span>)&#123;<br>			<span class="hljs-variable language_">this</span>.<span class="hljs-property">$bus</span>.$emit(<span class="hljs-string">&#x27;hello&#x27;</span>,<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="pubsub-js">pubsub-js</h2>
+<blockquote>
+<p>消息的订阅与发布，也可以实现任意组件间通讯，而且不局限于Vue</p>
+</blockquote>
+<p>下面我们继续实现组件B向组件A传递数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">//组件A中</span><br><span class="hljs-keyword">import</span> pubsub <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pubsub-js&#x27;</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	<span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-comment">//pubsub是一个对象，subscribe方法第一个参数是消息名称</span><br>        <span class="hljs-comment">//回调函数会收到传来的n+1个参数</span><br>        <span class="hljs-comment">//第一个参数是消息名（参数都以形参的形式接收到）</span><br>		<span class="hljs-variable language_">this</span>.<span class="hljs-property">pubID</span> = pubsub.<span class="hljs-title function_">subscribe</span>(<span class="hljs-string">&#x27;hello&#x27;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;B has received data! And function&#x27;</span>);<br>		&#125;)<br>        <span class="hljs-comment">//这里的回调函数最好写成箭头函数的形式，因为this的指向问题</span><br>        <span class="hljs-comment">//更好的做法是把回调函数直接写到methods中</span><br>	&#125;,<br>    <span class="hljs-title function_">beforeDestroy</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-comment">//取消订阅的不是消息本身，而是整个订阅。</span><br>        <span class="hljs-comment">//但是两个不同的钩子中访问不到，因此需要在this身上添加方法</span><br>        pubsub.<span class="hljs-title function_">unsubscribe</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">pubID</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//组件B中</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	methods：&#123;<br>		<span class="hljs-title function_">sendDataToA</span>(<span class="hljs-params"></span>)&#123;<br>			pubsub.<span class="hljs-title function_">publish</span>(<span class="hljs-string">&#x27;hello&#x27;</span>,<span class="hljs-number">666</span>);<br>			<span class="hljs-comment">//B向发布&#x27;hello&#x27;消息并传递参数666</span><br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -313,6 +331,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/07/10/Vuex/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vuex</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
