@@ -1,0 +1,221 @@
+body{
+	font-family: Arial, Helvetica, sans-serif; 
+	
+}
+
+.player{
+	height:95vh;
+	display:flex;
+	align-items:center;
+	justify-content: center;
+}
+
+.wrapper-all{
+	display:flex;
+	height:88vh;
+	/* width:76vw; */
+	border:1px solid transparent;
+	border-radius:20px;
+	box-shadow:rgba(0,0,0,0.3) 0px 19px 38px,rgba(0,0,0,0.22) 0px 15px 12px;
+}
+.wrapper{
+	height:80vh;
+	width:30vw;
+	border:1px solid transparent;
+	padding:4vh 4vw;
+	border-radius:20px 0 0 20px;
+	/* box-shadow:rgba(0,0,0,0.3) 0px 19px 38px,rgba(0,0,0,0.22) 0px 15px 12px;*/
+} 
+
+.details{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content: center;
+	padding-bottom: 2vh;
+}
+.track-art-wrapper{
+	margin:4vh;
+	border-radius:50%;
+	box-shadow:0px 6px 5px #ccc;
+	border:2px solid #fff;
+}
+
+.track-art{
+	/* margin:4vh; */
+	height:35vh;
+	width:35vh;
+	/* border:2px solid #fff; */
+	background-size:cover;
+	/*缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。*/
+	background-position:center;
+	border-radius:50%;
+	/* box-shadow:0px 6px 5px #ccc; */
+}
+.now-playing {
+	font-size:1rem;
+}
+.track-name{
+	font-size:5.5vh;
+}
+.track-artist{
+	margin-top:1vh;
+	font-size:3.5vh;
+}
+.buttons{
+	width:30vw;
+	height:10vh;
+	display:flex;
+	justify-content: center;
+}
+.active{
+	color:black;
+}
+.download-track,
+.random-track,
+.playpause-track,
+.prev-track,
+.next-track{
+		/* padding:25px; */
+		padding:1vw;
+		opacity:0.8;
+		transition:opacity .2s;
+}
+i.fa-moon{
+	opacity:0.8;
+	transition:opacity .2s;
+}
+i.fa-moon:hover{
+	opacity:1;
+}
+
+
+.icon{
+	display: flex;
+	align-items: center;
+}
+.repeat-track:hover,
+.random-track:hover,
+.playpause-track:hover,
+.prev-track:hover,
+.download-track:hover{
+	opacity: 1;
+}
+.slider-container{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.seek-slider,
+.volume-slider{
+	appearance:none;
+	/* height:5px; */
+	height:0.8vh;
+	background:#83a9ff;
+	transition:opacity .2s;
+}
+
+/*处理两个滑动条上的小圈*/
+.seek-slider::-webkit-slider-thumb,
+.volume-slider::-webkit-slider-thumb{
+	appearance:none;
+	width:15px;
+	height:15px;
+	background: white;
+	border:3px solid #3774ff;
+	cursor:pointer;
+	/*鼠标悬停在元素上的光标*/
+	border-radius:100%;
+}
+.seek-slider:hover,
+.volume-slider:hover{
+	opacity:1.0;
+}
+.seek-slider{
+	width:60%;
+}
+.volume-slider{
+	width:30%;
+}
+.current-time,
+.total-duration{
+	padding:10px;
+}
+
+i.fa-volume-down,
+i.fa-volume-up{
+	padding:10px;
+}
+i,
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward,
+i.fa-moon,
+i.fa-download{
+	cursor:pointer;
+}
+
+.night-container{
+	padding-left:2vw;
+	height:100%;
+	position:relative;
+}
+
+/*选中随机播放后的随机播放图标的样式*/
+.randomActive{
+	color:#5788f9;
+}
+/*图片外部的盒子旋转*/
+.rotate{
+	animation:rotation 8s infinite linear;
+}
+@keyframes rotation{
+	from{
+		transform:rotate(0deg);
+	}
+	to{
+		transform:rotate(359deg);
+	}
+}
+
+
+.lyric-wrapper{
+	height:80vh;
+	width:30vw;
+	border:1px solid transparent;
+	padding:4vh 1vw 4vh 1vw;
+	border-radius:0 20px 20px 0;
+	/* box-shadow:rgba(0,0,0,0.3) 0px 19px 38px,rgba(0,0,0,0.22) 0px 15px 12px; */
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+/* 歌词相关 */
+.lyric-container{
+	height:100%;
+	width:85%;
+	overflow:scroll;
+	font-size: 22px;
+	color:rgba(97, 97, 97, 0.436);
+	/* color:rgba(244, 239, 239, 0.436); */
+}
+
+.lyric-container > div {
+	cursor:pointer;
+	padding: 1vh 0 1vh 0;
+}
+
+.current-line{
+	color:#83a9ff;
+	font-weight:bold;
+	font-size: 25px
+	/* background-color: aquamarine; */
+}
+
+
+/*处理滚动条 但存在兼容性问题*/
+.lyric-container::-webkit-scrollbar {
+  display: none;
+}
