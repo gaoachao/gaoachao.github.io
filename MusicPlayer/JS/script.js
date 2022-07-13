@@ -309,9 +309,9 @@ function updateLyric() {
   for (let i = 0; i < lyric.length; i++) {
     if (this.currentTime >= lyric[i][0] && this.currentTime < lyric[i + 1][0]) {
       let line = document.getElementById("line-" + i),
-        prevLine = document.getElementById("line-" + (i > 0 ? i - 1 : i));
-      // scrollunit =  lyricContainer.scrollHeight / lyric.length;
-      // lyricContainer.scrollTop = scrollunit * i - 170;
+        prevLine = document.getElementById("line-" + (i > 0 ? i - 1 : i)),
+      	scrollunit =  lyricContainer.scrollHeight / lyric.length;
+      lyricContainer.scrollTop = scrollunit * i - 170;
       prevLine.classList.remove("current-line");
       line.classList.add("current-line");
     }
