@@ -355,7 +355,7 @@ let mobileListener = function(){
 		buttons.style.justifyContent = 'center';
 	}
 }
-
+mobileListener();
 window.addEventListener('resize',mobileListener);
 
 
