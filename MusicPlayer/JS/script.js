@@ -370,3 +370,18 @@ setTimeout(function () {
     });
   }
 }, 100);
+
+
+
+//移动端适配
+let mobileListener = function(){
+	if(window.screen.width < 821){
+		wrapperAll.style.display = 'block';
+		wrapper.style.width = '82vw';
+		lyricWrapper.style.display = 'none';
+		buttons.style.width = '82vw';
+		buttons.style.justifyContent = 'space-around';
+	}
+}
+
+window.addEventListener('resize',mobileListener);

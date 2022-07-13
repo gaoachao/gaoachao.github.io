@@ -18,16 +18,16 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Vue-router">
+    <meta name="description" content="Vue-router 基本使用   安装vue-router，命令：npm i vue-router   应用插件：Vue.use(VueRouter)   编写router配置项: 12345678910111213141516171819202122&#x2F;&#x2F;引入VueRouterimport VueRouter from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F;引入Luyou 组件impo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-router">
 <meta property="og:url" content="https://www.bitter-gourd.com/2022/07/11/Vue-router/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="Vue-router">
+<meta property="og:description" content="Vue-router 基本使用   安装vue-router，命令：npm i vue-router   应用插件：Vue.use(VueRouter)   编写router配置项: 12345678910111213141516171819202122&#x2F;&#x2F;引入VueRouterimport VueRouter from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F;引入Luyou 组件impo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/Vue.png">
 <meta property="article:published_time" content="2022-07-11T13:01:46.000Z">
-<meta property="article:modified_time" content="2022-07-11T13:38:27.176Z">
+<meta property="article:modified_time" content="2022-07-13T12:19:57.447Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      10 字
+      1.6k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      14 分钟
     </span>
   
 
@@ -258,6 +258,57 @@
             
             <div class="markdown-body">
               <h1>Vue-router</h1>
+<h2 id="基本使用">基本使用</h2>
+<ol>
+<li>
+<p>安装vue-router，命令：<code>npm i vue-router</code></p>
+</li>
+<li>
+<p>应用插件：<code>Vue.use(VueRouter)</code></p>
+</li>
+<li>
+<p>编写router配置项:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">//引入VueRouter</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">VueRouter</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><span class="hljs-comment">//引入Luyou 组件</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">About</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../components/About&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Home</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../components/Home&#x27;</span><br><br><span class="hljs-comment">//创建router实例对象，去管理一组一组的路由规则</span><br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>	<span class="hljs-attr">routes</span>:[<br>		&#123;<br>			<span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/about&#x27;</span>,<br>			<span class="hljs-attr">component</span>:<span class="hljs-title class_">About</span><br>		&#125;,<br>		&#123;<br>			<span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/home&#x27;</span>,<br>			<span class="hljs-attr">component</span>:<span class="hljs-title class_">Home</span><br>		&#125;<br>	]<br>&#125;)<br><br><span class="hljs-comment">//暴露router</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> router<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>实现切换（active-class可配置高亮样式）</p>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">&lt;router-link <span class="hljs-attribute">active-class</span>=<span class="hljs-string">&quot;active&quot;</span> <span class="hljs-attribute">to</span>=<span class="hljs-string">&quot;/about&quot;</span>&gt;About&lt;/router-link&gt;<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>指定展示位置</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-section">&lt;router-view&gt;</span><span class="hljs-section">&lt;/router-view&gt;</span><br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="几个注意点">几个注意点</h3>
+<ol>
+<li>路由组件通常存放在<code>pages</code>文件夹，一般组件通常存放在<code>components</code>文件夹。</li>
+<li>通过切换，“隐藏”了的路由组件，默认是被销毁掉的，需要的时候再去挂载。</li>
+<li>每个组件都有自己的<code>$route</code>属性，里面存储着自己的路由信息。</li>
+<li>整个应用只有一个router，可以通过组件的<code>$router</code>属性获取到。</li>
+</ol>
+<h2 id="多级（嵌套）路由">多级（嵌套）路由</h2>
+<ol>
+<li>
+<p>配置路由规则，使用children配置项：</p>
+<figure class="highlight xl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xl">routes:[<br>	&#123;<br>		<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;/about&#x27;</span>,<br>		component:About,<br>	&#125;,<br>	&#123;<br>		<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;/home&#x27;</span>,<br>		component:Home,<br>		children:[ <span class="hljs-comment">//通过children配置子级路由</span><br>			&#123;<br>				<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;news&#x27;</span>, <span class="hljs-comment">//此处一定不要写：/news</span><br>				component:News<br>			&#125;,<br>			&#123;<br>				<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;message&#x27;</span>,<span class="hljs-comment">//此处一定不要写：/message</span><br>				component:Message<br>			&#125;<br>		]<br>	&#125;<br>]<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>跳转（要写完整路径）：</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/home/news&quot;</span>&gt;</span>News<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="路由的query参数">路由的query参数</h2>
+<ol>
+<li>
+<p>传递参数</p>
+<figure class="highlight dust"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!-- 跳转并携带query参数，to的字符串写法 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">:to</span>=<span class="hljs-string">&quot;/home/message/detail?id=666&amp;title=你好&quot;</span>&gt;</span>跳转<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br><span class="language-xml">				</span><br><span class="language-xml"><span class="hljs-comment">&lt;!-- 跳转并携带query参数，to的对象写法 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> </span></span><br><span class="hljs-tag"><span class="language-xml">	<span class="hljs-attr">:to</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">		path:&#x27;/home/message/detail&#x27;,</span><br><span class="hljs-template-variable">		query:&#123;</span><br><span class="hljs-template-variable">		   id:666,</span><br><span class="hljs-template-variable">           title:&#x27;你好&#x27;</span><br><span class="hljs-template-variable">		&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">	&#125;&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">&gt;</span></span><br><span class="language-xml">	跳转</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br></code></pre></div></td></tr></table></figure>
+<p>如果需要传参则需使用模板字符串的写法。</p>
+</li>
+<li>
+<p>接收参数：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-variable">$route</span><span class="hljs-selector-class">.query</span><span class="hljs-selector-class">.id</span><br><span class="hljs-variable">$route</span><span class="hljs-selector-class">.query</span>.title<br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
 
             </div>
             <hr>
