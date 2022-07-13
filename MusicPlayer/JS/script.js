@@ -345,7 +345,7 @@ randomBtn.addEventListener("click", randomTrack);
 downloadBtn.addEventListener("click", downloadTrack);
 nightBtn.addEventListener("click", nightModel);
 
-seekSlider.addEventListener("change", seekTo);
+seekSlider.addEventListener("input", seekTo);
 volumeSlider.addEventListener("change", setVolume);
 
 currentTrack.addEventListener("timeupdate", updateLyric);
