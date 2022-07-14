@@ -362,7 +362,6 @@ function updateLyric() {
     nowLyric++;
     isOver = true;
   }
-  console.log(nowLyric);
 }
 
 //实现点击歌词audio跳转到相应位置
