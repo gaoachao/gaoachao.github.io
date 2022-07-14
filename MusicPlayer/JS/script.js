@@ -27,10 +27,13 @@ let currentTrack = document.createElement("audio");
 let lyricContainer = document.querySelector(".lyric-container");
 let lyric;
 
+let nowLyric = 0;
 let trackIndex = 0;
 let isPlaying = false;
 let isRandom = false;
 let isNight = false;
+//当前歌词是否已经播放完毕
+let isOver = true;
 let updateTimer;
 
 //歌曲列表
@@ -190,15 +193,19 @@ function playpauseTrack() {
 function playTrack() {
   currentTrack.play();
   isPlaying = true;
-
   trackArt.classList.add("rotate");
+  trackArt.classList.remove("paused-play");
+  trackArt.classList.add("active-play");
   playPauseBtn.innerHTML = '<i class="fas fa-pause-circle fa-4x"></i>';
 }
 
 function pauseTrack() {
   currentTrack.pause();
   isPlaying = false;
-  trackArt.classList.remove("rotate");
+  // trackArt.classList.remove("rotate");
+  trackArt.classList.add("rotate");
+  trackArt.classList.remove("active-play");
+  trackArt.classList.add("paused-play");
   playPauseBtn.innerHTML = '<i class="fas fa-play-circle fa-4x"></i>';
 }
 
@@ -238,6 +245,17 @@ function seekTo() {
   for (let i = 0; i < lyric.length; i++) {
     let line = document.getElementById("line-" + i);
     line.classList.remove("current-line");
+    if (
+      currentTrack.currentTime >= lyric[i][0] &&
+      currentTrack.currentTime < lyric[i + 1][0]
+    ) {
+      let scrollunit = lyricContainer.scrollHeight / lyric.length,
+					nowLine = document.getElementById("line-" + i);
+			nowLyric = i;
+			nowLine.classList.add("current-line");
+      lyricContainer.scrollTop = scrollunit * nowLyric - 190;
+      isOver = false;
+    }
   }
 }
 
@@ -305,17 +323,46 @@ function appendLyric(lyric) {
 }
 
 //实现滚动条与audio currentTime的同步以及添加当前歌词的样式
+// function updateLyric() {
+// 	let i = nowLyric;
+//   if (isOver) {
+//     for (i; i < lyric.length; i++) {
+//       if (
+//         this.currentTime >= lyric[i][0] &&
+//         this.currentTime < lyric[i + 1][0]
+//       ) {
+//         let line = document.getElementById("line-" + i),
+//           prevLine = document.getElementById("line-" + (i > 0 ? i - 1 : i)),
+//           scrollunit = lyricContainer.scrollHeight / lyric.length;
+//         lyricContainer.scrollTop = scrollunit * i - 170;
+//         prevLine.classList.remove("current-line");
+//         line.classList.add("current-line");
+// 				isOver = false;
+//       }
+//     }
+//   }
+// 	if(this.currentTime >= lyric[nowLyric + 1][0]){
+// 		isOver = true;
+// 	}
+// }
+
 function updateLyric() {
-  for (let i = 0; i < lyric.length; i++) {
-    if (this.currentTime >= lyric[i][0] && this.currentTime < lyric[i + 1][0]) {
-      let line = document.getElementById("line-" + i),
-        prevLine = document.getElementById("line-" + (i > 0 ? i - 1 : i)),
-      	scrollunit =  lyricContainer.scrollHeight / lyric.length;
-      lyricContainer.scrollTop = scrollunit * i - 170;
-      prevLine.classList.remove("current-line");
-      line.classList.add("current-line");
-    }
+  if (isOver) {
+    let line = document.getElementById("line-" + nowLyric),
+      prevLine = document.getElementById(
+        "line-" + (nowLyric > 0 ? nowLyric - 1 : nowLyric)
+      ),
+      scrollunit = lyricContainer.scrollHeight / lyric.length;
+    lyricContainer.scrollTop = scrollunit * nowLyric - 190;
+    prevLine.classList.remove("current-line");
+    line.classList.add("current-line");
+    isOver = false;
   }
+  if (this.currentTime >= lyric[nowLyric + 1][0]) {
+    nowLyric++;
+    isOver = true;
+  }
+  console.log(nowLyric);
 }
 
 //实现点击歌词audio跳转到相应位置
@@ -334,30 +381,30 @@ function updateAudio() {
           let otherLine = document.getElementById("line-" + k);
           otherLine.classList.remove("current-line");
         }
+        nowLyric = i;
       });
     }
   }, 100);
 }
 
 //移动端适配
-let mobileListener = function(){
-	if(window.screen.width < 821){
-		wrapperAll.style.display = 'block';
-		wrapper.style.width = '82vw';
-		lyricWrapper.style.display = 'none';
-		buttons.style.width = '82vw';
-		buttons.style.justifyContent = 'space-around';
-	} else {
-		wrapperAll.style.display = 'flex';
-		wrapper.style.width = '30vw';
-		lyricWrapper.style.display = 'flex';
-		buttons.style.width = '30vw';
-		buttons.style.justifyContent = 'center';
-	}
-}
+let mobileListener = function () {
+  if (window.screen.width < 821) {
+    wrapperAll.style.display = "block";
+    wrapper.style.width = "82vw";
+    lyricWrapper.style.display = "none";
+    buttons.style.width = "82vw";
+    buttons.style.justifyContent = "space-around";
+  } else {
+    wrapperAll.style.display = "flex";
+    wrapper.style.width = "30vw";
+    lyricWrapper.style.display = "flex";
+    buttons.style.width = "30vw";
+    buttons.style.justifyContent = "center";
+  }
+};
 mobileListener();
-window.addEventListener('resize',mobileListener);
-
+window.addEventListener("resize", mobileListener);
 
 //监听器
 playPauseBtn.addEventListener("click", playpauseTrack);
@@ -375,7 +422,6 @@ currentTrack.addEventListener("timeupdate", updateLyric);
 currentTrack.addEventListener("loadeddata", durationTime);
 currentTrack.addEventListener("loadeddata", updateAudio);
 
-
 setTimeout(function () {
   for (let i = 0; i < lyric.length; i++) {
     let line = document.getElementById("line-" + i);
@@ -390,10 +436,7 @@ setTimeout(function () {
         let otherLine = document.getElementById("line-" + k);
         otherLine.classList.remove("current-line");
       }
+      nowLyric = i;
     });
   }
 }, 100);
-
-
-
-

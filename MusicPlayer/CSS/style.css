@@ -94,7 +94,7 @@ i.fa-moon:hover{
 	display: flex;
 	align-items: center;
 }
-.repeat-track:hover,
+.next-track:hover,
 .random-track:hover,
 .playpause-track:hover,
 .prev-track:hover,
@@ -179,7 +179,12 @@ i.fa-download{
 		transform:rotate(359deg);
 	}
 }
-
+.active-play {
+  animation-play-state: running;
+}
+.paused-play {
+  animation-play-state: paused;
+}
 
 .lyric-wrapper{
 	height:80vh;
