@@ -264,7 +264,7 @@
 <p>In mathematics and computer science, currying is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument.</p>
 </blockquote>
 <p>在数学和计算机科学中，柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术。</p>
-<h2 id="用法">用法</h2>
+<h2 id="用法-2">用法</h2>
 <figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>) &#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br><br><span class="hljs-title function_">add</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">//3</span><br><br><span class="hljs-keyword">var</span> addCurry = <span class="hljs-title function_">curry</span>(add);<br><span class="hljs-title function_">addCurry</span>(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span>)  <span class="hljs-comment">//3</span><br></code></pre></div></td></tr></table></figure>
 <h2 id="手写Curry">手写<code>Curry</code></h2>
 <h3 id="破产版">破产版</h3>
