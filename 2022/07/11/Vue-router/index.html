@@ -18,16 +18,16 @@
   <meta name="author" content="bitter-gourd">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Vue-router 基本使用   安装vue-router，命令：npm i vue-router   应用插件：Vue.use(VueRouter)   编写router配置项: 12345678910111213141516171819202122&#x2F;&#x2F;引入VueRouterimport VueRouter from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F;引入Luyou 组件impo">
+    <meta name="description" content="Vue-router  理解： 一个路由（route）就是一组映射关系（key - value），多个路由需要路由器（router）进行管理。 前端路由：key是路径，value是组件。  基本使用   安装vue-router，命令：npm i vue-router   应用插件：Vue.use(VueRouter)   编写router配置项: 123456789101112131415161">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-router">
 <meta property="og:url" content="https://www.bitter-gourd.com/2022/07/11/Vue-router/index.html">
 <meta property="og:site_name" content="Bitter-Gourd">
-<meta property="og:description" content="Vue-router 基本使用   安装vue-router，命令：npm i vue-router   应用插件：Vue.use(VueRouter)   编写router配置项: 12345678910111213141516171819202122&#x2F;&#x2F;引入VueRouterimport VueRouter from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F;引入Luyou 组件impo">
+<meta property="og:description" content="Vue-router  理解： 一个路由（route）就是一组映射关系（key - value），多个路由需要路由器（router）进行管理。 前端路由：key是路径，value是组件。  基本使用   安装vue-router，命令：npm i vue-router   应用插件：Vue.use(VueRouter)   编写router配置项: 123456789101112131415161">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.bitter-gourd.com/img/Vue.png">
 <meta property="article:published_time" content="2022-07-11T13:01:46.000Z">
-<meta property="article:modified_time" content="2022-07-13T12:19:57.447Z">
+<meta property="article:modified_time" content="2022-07-15T08:04:07.708Z">
 <meta property="article:author" content="bitter-gourd">
 <meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      5.7k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      48 分钟
     </span>
   
 
@@ -258,6 +258,10 @@
             
             <div class="markdown-body">
               <h1>Vue-router</h1>
+<ol>
+<li>理解： 一个路由（route）就是一组映射关系（key - value），多个路由需要路由器（router）进行管理。</li>
+<li>前端路由：key是路径，value是组件。</li>
+</ol>
 <h2 id="基本使用">基本使用</h2>
 <ol>
 <li>
@@ -309,6 +313,122 @@
 <figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-variable">$route</span><span class="hljs-selector-class">.query</span><span class="hljs-selector-class">.id</span><br><span class="hljs-variable">$route</span><span class="hljs-selector-class">.query</span>.title<br></code></pre></div></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="命名路由">命名路由</h2>
+<ol>
+<li>
+<p>作用：可以简化路由的跳转。</p>
+</li>
+<li>
+<p>如何使用</p>
+<ol>
+<li>
+<p>给路由命名：</p>
+<figure class="highlight xl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xl">&#123;<br>	<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;/demo&#x27;</span>,<br>	component:Demo,<br>	children:[<br>		&#123;<br>			<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;test&#x27;</span>,<br>			component:Test,<br>			children:[<br>				&#123;<br>                      <span class="hljs-keyword">name</span>:<span class="hljs-string">&#x27;hello&#x27;</span> <span class="hljs-comment">//给路由命名</span><br>					<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;welcome&#x27;</span>,<br>					component:Hello,<br>				&#125;<br>			]<br>		&#125;<br>	]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>简化跳转：</p>
+<figure class="highlight dust"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!--简化前，需要写完整的路径 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/demo/test/welcome&quot;</span>&gt;</span>跳转<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-comment">&lt;!--简化后，直接通过名字跳转 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">:to</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;name:&#x27;hello&#x27;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>跳转<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-comment">&lt;!--简化写法配合传递参数 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> </span></span><br><span class="hljs-tag"><span class="language-xml">	<span class="hljs-attr">:to</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">		name:&#x27;hello&#x27;,</span><br><span class="hljs-template-variable">		query:&#123;</span><br><span class="hljs-template-variable">		   id:666,</span><br><span class="hljs-template-variable">            title:&#x27;你好&#x27;</span><br><span class="hljs-template-variable">		&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">	&#125;&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">&gt;</span>跳转<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="路由的params参数">路由的params参数</h2>
+<ol>
+<li>
+<p>配置路由，声明接收params参数</p>
+<figure class="highlight xl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xl">&#123;<br>	<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;/home&#x27;</span>,<br>	component:Home,<br>	children:[<br>		&#123;<br>			<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;news&#x27;</span>,<br>			component:News<br>		&#125;,<br>		&#123;<br>			component:Message,<br>			children:[<br>				&#123;<br>					<span class="hljs-keyword">name</span>:<span class="hljs-string">&#x27;xiangqing&#x27;</span>,<br>					<span class="hljs-built_in">path</span>:<span class="hljs-string">&#x27;detail/:id/:title&#x27;</span>, <span class="hljs-comment">//使用占位符声明接收params参数</span><br>					component:Detail<br>				&#125;<br>			]<br>		&#125;<br>	]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>传递参数</p>
+<figure class="highlight dust"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!-- 跳转并携带params参数，to的字符串写法 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">:to</span>=<span class="hljs-string">&quot;/home/message/detail/666/你好&quot;</span>&gt;</span>跳转<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br><span class="language-xml">				</span><br><span class="language-xml"><span class="hljs-comment">&lt;!-- 跳转并携带params参数，to的对象写法 --&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> </span></span><br><span class="hljs-tag"><span class="language-xml">	<span class="hljs-attr">:to</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">		name:&#x27;xiangqing&#x27;,</span><br><span class="hljs-template-variable">		params:&#123;</span><br><span class="hljs-template-variable">		   id:666,</span><br><span class="hljs-template-variable">            title:&#x27;你好&#x27;</span><br><span class="hljs-template-variable">		&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">	&#125;&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">&gt;</span>跳转<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！</p>
+</blockquote>
+</li>
+<li>
+<p>接收参数：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-variable">$route</span><span class="hljs-selector-class">.params</span><span class="hljs-selector-class">.id</span><br><span class="hljs-variable">$route</span><span class="hljs-selector-class">.params</span>.title<br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="路由的props配置">路由的props配置</h2>
+<p>作用：让路由组件更方便的收到参数</p>
+<figure class="highlight maxima"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs maxima">&#123;<br>	name:&#x27;xiangqing&#x27;,<br>	path:&#x27;detail/:id&#x27;,<br>	component:Detail,<br><br>	//第一种写法：<span class="hljs-built_in">props</span>值为对象，该对象中所有的<span class="hljs-built_in">key</span>-value的组合最终都会通过<span class="hljs-built_in">props</span>传给Detail组件<br>	// <span class="hljs-built_in">props</span>:&#123;a:<span class="hljs-number">900</span>&#125;<br><br>	//第二种写法：<span class="hljs-built_in">props</span>值为布尔值，布尔值为<span class="hljs-literal">true</span>，则把路由收到的所有params参数通过<span class="hljs-built_in">props</span>传给Detail组件<br>	// <span class="hljs-built_in">props</span>:<span class="hljs-literal">true</span><br>	<br>	//第三种写法：<span class="hljs-built_in">props</span>值为函数，该函数返回的对象中每一组<span class="hljs-built_in">key</span>-value都会通过<span class="hljs-built_in">props</span>传给Detail组件<br>	<span class="hljs-built_in">props</span>(route)&#123;<br>		<span class="hljs-built_in">return</span> &#123;<br>			id:route.query.id,<br>			<span class="hljs-built_in">title</span>:route.query.<span class="hljs-built_in">title</span><br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="router-link-的replace属性"><code>&lt;router-link&gt;</code>的replace属性</h2>
+<ol>
+<li>作用：控制路由跳转时操作浏览器历史记录的模式</li>
+<li>浏览器的历史记录有两种写入方式：分别为<code>push</code>和<code>replace</code>，<code>push</code>是追加历史记录，<code>replace</code>是替换当前记录。路由跳转时候默认为<code>push</code></li>
+<li>如何开启<code>replace</code>模式：<code>&lt;router-link replace .......&gt;News&lt;/router-link&gt;</code></li>
+</ol>
+<h2 id="编程式路由导航">编程式路由导航</h2>
+<ol>
+<li>
+<p>作用：不借助<code>&lt;router-link&gt; </code>实现路由跳转，让路由跳转更加灵活</p>
+</li>
+<li>
+<p>具体编码：</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">//$router的两个API</span><br>this.<span class="hljs-variable">$router</span>.<span class="hljs-title function_ invoke__">push</span>(&#123;<br>	<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;xiangqing&#x27;</span>,<br>		<span class="hljs-attr">params</span>:&#123;<br>			<span class="hljs-attr">id</span>:xxx,<br>			<span class="hljs-attr">title</span>:xxx<br>		&#125;<br>&#125;)<br><br>this.<span class="hljs-variable">$router</span>.<span class="hljs-title function_ invoke__">replace</span>(&#123;<br>	<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;xiangqing&#x27;</span>,<br>		<span class="hljs-attr">params</span>:&#123;<br>			<span class="hljs-attr">id</span>:xxx,<br>			<span class="hljs-attr">title</span>:xxx<br>		&#125;<br>&#125;)<br>this.<span class="hljs-variable">$router</span>.<span class="hljs-title function_ invoke__">forward</span>() <span class="hljs-comment">//前进</span><br>this.<span class="hljs-variable">$router</span>.<span class="hljs-title function_ invoke__">back</span>() <span class="hljs-comment">//后退</span><br>this.<span class="hljs-variable">$router</span>.<span class="hljs-title function_ invoke__">go</span>() <span class="hljs-comment">//可前进也可后退 参数是number类型(正数为前进的步数,负数为后退的部署)</span><br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="缓存路由组件">缓存路由组件</h2>
+<ol>
+<li>
+<p>作用：让不展示的路由组件保持挂载，不被销毁。</p>
+</li>
+<li>
+<p>具体编码：</p>
+<figure class="highlight stata"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stata">&lt;<span class="hljs-keyword">keep</span>-alive <span class="hljs-keyword">include</span>=<span class="hljs-string">&quot;News&quot;</span>&gt; <br>    &lt;router-<span class="hljs-keyword">view</span>&gt;&lt;/router-<span class="hljs-keyword">view</span>&gt;<br>&lt;/<span class="hljs-keyword">keep</span>-alive&gt;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="两个新的生命周期钩子">两个新的生命周期钩子</h2>
+<ol>
+<li>作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。</li>
+<li>具体名字：
+<ol>
+<li><code>activated</code>路由组件被激活时触发。</li>
+<li><code>deactivated</code>路由组件失活时触发。</li>
+</ol>
+</li>
+</ol>
+<h2 id="路由守卫">路由守卫</h2>
+<ol>
+<li>
+<p>作用：对路由进行权限控制</p>
+</li>
+<li>
+<p>分类：全局守卫、独享守卫、组件内守卫</p>
+</li>
+<li>
+<p>全局守卫:</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>全局前置守卫：初始化时执行、每次路由切换前执行<br>router.beforeEach((to,from,<span class="hljs-keyword">next</span>)=&gt;&#123;<br>	console.log(<span class="hljs-string">&#x27;beforeEach&#x27;</span>,to,from)<br>	<span class="hljs-keyword">if</span>(to.meta.isAuth)&#123; <span class="hljs-regexp">//</span>判断当前路由是否需要进行权限控制<br>		<span class="hljs-keyword">if</span>(localStorage.getItem(<span class="hljs-string">&#x27;school&#x27;</span>) === <span class="hljs-string">&#x27;atguigu&#x27;</span>)&#123; <span class="hljs-regexp">//</span>权限控制的具体规则<br>			<span class="hljs-keyword">next</span>() <span class="hljs-regexp">//</span>放行<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			alert(<span class="hljs-string">&#x27;暂无权限查看&#x27;</span>)<br>			<span class="hljs-regexp">//</span> <span class="hljs-keyword">next</span>(&#123;name:<span class="hljs-string">&#x27;guanyu&#x27;</span>&#125;)<br>		&#125;<br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-keyword">next</span>() <span class="hljs-regexp">//</span>放行<br>	&#125;<br>&#125;)<br><br><span class="hljs-regexp">//</span>全局后置守卫：初始化时执行、每次路由切换后执行<br>router.afterEach((to,from)=&gt;&#123;<br>	console.log(<span class="hljs-string">&#x27;afterEach&#x27;</span>,to,from)<br>	<span class="hljs-keyword">if</span>(to.meta.title)&#123; <br>		document.title = to.meta.title <span class="hljs-regexp">//</span>修改网页的title<br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>		document.title = <span class="hljs-string">&#x27;vue_test&#x27;</span><br>	&#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>独享守卫:</p>
+<figure class="highlight autoit"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autoit">beforeEnter(<span class="hljs-keyword">to</span>,from,<span class="hljs-keyword">next</span>)&#123;<br>	console.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;beforeEnter&#x27;</span>,<span class="hljs-keyword">to</span>,from)<br>	<span class="hljs-keyword">if</span>(<span class="hljs-keyword">to</span>.meta.isAuth)&#123; //判断当前路由是否需要进行权限控制<br>		<span class="hljs-keyword">if</span>(localStorage.getItem(<span class="hljs-string">&#x27;school&#x27;</span>) === <span class="hljs-string">&#x27;atguigu&#x27;</span>)&#123;<br>			<span class="hljs-keyword">next</span>()<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			alert(<span class="hljs-string">&#x27;暂无权限查看&#x27;</span>)<br>			// <span class="hljs-keyword">next</span>(&#123;name:<span class="hljs-string">&#x27;guanyu&#x27;</span>&#125;)<br>		&#125;<br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-keyword">next</span>()<br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>
+<p>组件内守卫：</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>进入守卫：通过路由规则，进入该组件时被调用<br>beforeRouteEnter (to, from, <span class="hljs-keyword">next</span>) &#123;<br>&#125;,<br><span class="hljs-regexp">//</span>离开守卫：通过路由规则，离开该组件时被调用<br>beforeRouteLeave (to, from, <span class="hljs-keyword">next</span>) &#123;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="路由器的两种工作模式">路由器的两种工作模式</h2>
+<ol>
+<li>对于一个url来说，什么是hash值？—— #及其后面的内容就是hash值。</li>
+<li>hash值不会包含在 HTTP 请求中，即：hash值不会带给服务器。</li>
+<li>hash模式：
+<ol>
+<li>地址中永远带着#号，不美观 。</li>
+<li>若以后将地址通过第三方手机app分享，若app校验严格，则地址会被标记为不合法。</li>
+<li>兼容性较好。</li>
+</ol>
+</li>
+<li>history模式：
+<ol>
+<li>地址干净，美观 。</li>
+<li>兼容性和hash模式相比略差。</li>
+<li>应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。</li>
+</ol>
+</li>
+</ol>
 
             </div>
             <hr>
@@ -342,6 +462,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/07/15/mongodb/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">mongodb</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
