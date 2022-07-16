@@ -223,6 +223,8 @@ function nextTrack() {
   } else {
     trackIndex = 0;
   }
+	nowLyric = 0;
+	isOver = true;
   loadTrack(trackIndex);
   playTrack();
 }
@@ -242,21 +244,33 @@ function prevTrack() {
 function seekTo() {
   let seekto = currentTrack.duration * (seekSlider.value / 100);
   currentTrack.currentTime = seekto;
-  for (let i = 0; i < lyric.length; i++) {
+  for (let i = 0; i < lyric.length-1; i++) {
     let line = document.getElementById("line-" + i);
     line.classList.remove("current-line");
     if (
       currentTrack.currentTime >= lyric[i][0] &&
       currentTrack.currentTime < lyric[i + 1][0]
     ) {
+			let last = lyric.length -1 ;
       let scrollunit = lyricContainer.scrollHeight / lyric.length,
+					lastLine = document.getElementById("line-" + last ),
 					nowLine = document.getElementById("line-" + i);
 			nowLyric = i;
+			lastLine.classList.remove("current-line");
 			nowLine.classList.add("current-line");
       lyricContainer.scrollTop = scrollunit * nowLyric - 190;
       isOver = false;
-    }
+    } 
   }
+	if (currentTrack.currentTime > lyric[lyric.length-1][0] ) {
+		let i = lyric.length -1;
+		let scrollunit = lyricContainer.scrollHeight / lyric.length,
+				nowLine = document.getElementById("line-" + i);
+		nowLyric = i;
+		nowLine.classList.add("current-line");
+		lyricContainer.scrollTop = scrollunit * nowLyric - 190;
+		isOver = false;
+	} 
 }
 
 //设置歌曲音量
@@ -322,30 +336,6 @@ function appendLyric(lyric) {
   lyricContainer.appendChild(fragment);
 }
 
-//实现滚动条与audio currentTime的同步以及添加当前歌词的样式
-// function updateLyric() {
-// 	let i = nowLyric;
-//   if (isOver) {
-//     for (i; i < lyric.length; i++) {
-//       if (
-//         this.currentTime >= lyric[i][0] &&
-//         this.currentTime < lyric[i + 1][0]
-//       ) {
-//         let line = document.getElementById("line-" + i),
-//           prevLine = document.getElementById("line-" + (i > 0 ? i - 1 : i)),
-//           scrollunit = lyricContainer.scrollHeight / lyric.length;
-//         lyricContainer.scrollTop = scrollunit * i - 170;
-//         prevLine.classList.remove("current-line");
-//         line.classList.add("current-line");
-// 				isOver = false;
-//       }
-//     }
-//   }
-// 	if(this.currentTime >= lyric[nowLyric + 1][0]){
-// 		isOver = true;
-// 	}
-// }
-
 function updateLyric() {
   if (isOver) {
     let line = document.getElementById("line-" + nowLyric),
@@ -358,10 +348,11 @@ function updateLyric() {
     line.classList.add("current-line");
     isOver = false;
   }
-  if (this.currentTime >= lyric[nowLyric + 1][0]) {
+  if (nowLyric !== lyric.length-1 && this.currentTime >= lyric[nowLyric + 1][0]  ) {
     nowLyric++;
     isOver = true;
   }
+	// console.log(nowLyric);
 }
 
 //实现点击歌词audio跳转到相应位置

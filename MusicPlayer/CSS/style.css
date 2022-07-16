@@ -109,10 +109,11 @@ i.fa-moon:hover{
 
 .seek-slider,
 .volume-slider{
-	appearance:none;
-	/* height:5px; */
+	appearance:none; 
+	opacity:0.8;
+	background:#83a9ff; 
+	border-radius: 10px; /*将轨道设为圆角的*/
 	height:0.8vh;
-	background:#83a9ff;
 	transition:opacity .2s;
 }
 
