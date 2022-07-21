@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="bitter-gourd">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="NodeJS art-template 使用说明  在zsh中使用npm install art-template命令进行下载。 使用const template &#x3D; require(&#39;art-template&#39;)引入模板引擎。 告诉模板引擎要拼接的数据和模板在哪 const html &#x3D; template(&#39;模板路径&#39;，数据);  123456789&#x2F;&#x2F;导入模板引擎模块const templat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/07/18/NodeJS/index.html">
+<meta property="og:site_name" content="Bitter-Gourd">
+<meta property="og:description" content="NodeJS art-template 使用说明  在zsh中使用npm install art-template命令进行下载。 使用const template &#x3D; require(&#39;art-template&#39;)引入模板引擎。 告诉模板引擎要拼接的数据和模板在哪 const html &#x3D; template(&#39;模板路径&#39;，数据);  123456789&#x2F;&#x2F;导入模板引擎模块const templat">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/NodeJS.png">
+<meta property="article:published_time" content="2022-07-18T09:28:14.000Z">
+<meta property="article:modified_time" content="2022-07-19T06:26:09.347Z">
+<meta property="article:author" content="bitter-gourd">
+<meta property="article:tag" content="整理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/NodeJS.png">
+  
+  
+      <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
+  
+  <title>NodeJS - Bitter-Gourd</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.bitter-gourd.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","app_key":"JqtRDL6zUHz12DWKKpoJDEQz","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Bitter-Gourd</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/wallpaper.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="NodeJS">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-18 17:28" pubdate>
+        2022年7月18日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">NodeJS</h1>
+            
+            <div class="markdown-body">
+              <h1>NodeJS</h1>
+<h2 id="art-template">art-template</h2>
+<h3 id="使用说明">使用说明</h3>
+<ol>
+<li>在<code>zsh</code>中使用<code>npm install art-template</code>命令进行下载。</li>
+<li>使用<code>const template = require('art-template')</code>引入模板引擎。</li>
+<li>告诉模板引擎要拼接的数据和模板在哪 <code>const html = template('模板路径'，数据);</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">//导入模板引擎模块</span><br><span class="hljs-keyword">const</span> template = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;art-template&#x27;</span>);<br><span class="hljs-comment">//将特定的模板与特定数据进行拼接</span><br><span class="hljs-keyword">const</span> html = <span class="hljs-title function_">template</span>(<span class="hljs-string">&#x27;./views/index.art&#x27;</span>,&#123;<br>	<span class="hljs-attr">data</span>:&#123;<br>		<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;张三&#x27;</span>,<br>		<span class="hljs-attr">age</span>:<span class="hljs-number">20</span>,<br>	&#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+<h3 id="标准语法与原始语法">标准语法与原始语法</h3>
+<ul>
+<li>
+<p>标准语法：<code>&#123;&#123;  &#125;&#125;</code></p>
+</li>
+<li>
+<p>原始语法：<code>&lt;%=  %&gt;</code></p>
+</li>
+</ul>
+<h3 id="原文输出">原文输出</h3>
+<blockquote>
+<p>如果数据中携带HTML标签，默认情况下模板引擎为了安全考虑不会去解析标签，会将其转义后输出。</p>
+</blockquote>
+<p>解决办法：</p>
+<ul>
+<li>标准语法：<code>&#123;&#123; @数据 &#125;&#125;</code></li>
+<li>原始语法：<code>&lt;%- 数据  %&gt;</code></li>
+</ul>
+<h3 id="条件判断">条件判断</h3>
+<figure class="highlight handlebars"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs handlebars"><span class="language-xml">//模板文件中</span><br><span class="language-xml"></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name"><span class="hljs-built_in">if</span></span> age &gt; <span class="hljs-number">18</span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">	A</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;&#123;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> age &lt; 15&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">	B</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;&#123;<span class="hljs-keyword">else</span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">	C</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;&#123;/<span class="hljs-name"><span class="hljs-built_in">if</span></span>&#125;&#125;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="循环">循环</h3>
+<figure class="highlight handlebars"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs handlebars"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">	//循环data中的users数组</span><br><span class="language-xml">	</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name"><span class="hljs-built_in">each</span></span> users&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">			//使用$value代表数组元素</span><br><span class="language-xml">			</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">$value.name</span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">			</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">$value.age</span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">		<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">	</span><span class="hljs-template-tag">&#123;&#123;/<span class="hljs-name"><span class="hljs-built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br></code></pre></div></td></tr></table></figure>
+<h3 id="子模板">子模板</h3>
+<blockquote>
+<p>使用子模板可以将网站公共区块 （头部、底部）抽离到单独的文件中</p>
+</blockquote>
+<figure class="highlight handlebars"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs handlebars"><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">include</span> <span class="hljs-string">&#x27;./header.art&#x27;</span>&#125;&#125;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="模板继承">模板继承</h3>
+<blockquote>
+<p>使用模板继承可以将网站的HTML骨架抽离到单独的文件中，其他页面模板可以继承骨架文件。</p>
+</blockquote>
+<h2 id="HTTP模块">HTTP模块</h2>
+<h3 id="web服务器">web服务器</h3>
+<p>Q：什么是Web服务器？</p>
+<p>A：当应用程序（客户端）需要某一个资源时，可以向一台服务器，通过HTTP请求获取到这个资源；提供资源的这个服务器就是一个web服务器</p>
+<h3 id="创建服务器的方式">创建服务器的方式</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><br><span class="hljs-comment">//第一种创建方式</span><br><span class="hljs-keyword">const</span> server1 = http.<span class="hljs-title function_">createServer</span>();<br>server1.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>,<span class="hljs-function">()=&gt;</span>&#123;<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;监听端口3000&#x27;</span>)<br>&#125;)<br><br><span class="hljs-comment">//第二种创建方式</span><br><span class="hljs-keyword">const</span> server2 = <span class="hljs-keyword">new</span> http.<span class="hljs-title class_">Server</span>();<br>server2.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>,<span class="hljs-function">()=&gt;</span>&#123;<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;监听端口3000&#x27;</span>)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Node-js/">Node.js</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E7%90%86/">整理</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/18/sass/">
+                        <span class="hidden-mobile">sass</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","appKey":"JqtRDL6zUHz12DWKKpoJDEQz","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>bitter-gourd</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>2022</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/diy/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/Metingjs@1.2/dist/Meting.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
