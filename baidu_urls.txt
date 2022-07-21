@@ -1,6 +1,5 @@
 https://www.bitter-gourd.com/2022/07/18/NodeJS/
 https://www.bitter-gourd.com/2022/07/18/sass/
-https://www.bitter-gourd.com/2022/07/17/express/
 https://www.bitter-gourd.com/2022/07/15/mongodb/
 https://www.bitter-gourd.com/2022/07/11/Vue-router/
 https://www.bitter-gourd.com/2022/07/10/Vuex/
