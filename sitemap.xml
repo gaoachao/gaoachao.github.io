@@ -29,6 +29,15 @@
   </url>
   
   <url>
+    <loc>https://www.bitter-gourd.com/2022/07/15/mongodb/</loc>
+    
+    <lastmod>2022-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.bitter-gourd.com/2022/07/10/Vuex/</loc>
     
     <lastmod>2022-07-25</lastmod>
@@ -68,15 +77,6 @@
     <loc>https://www.bitter-gourd.com/2022/07/18/NodeJS/</loc>
     
     <lastmod>2022-07-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.bitter-gourd.com/2022/07/15/mongodb/</loc>
-    
-    <lastmod>2022-07-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -534,6 +534,13 @@
   </url>
   
   <url>
+    <loc>https://www.bitter-gourd.com/categories/React/</loc>
+    <lastmod>2022-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.bitter-gourd.com/categories/Typescript/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -556,13 +563,6 @@
   
   <url>
     <loc>https://www.bitter-gourd.com/categories/learning-resources/</loc>
-    <lastmod>2022-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.bitter-gourd.com/categories/React/</loc>
     <lastmod>2022-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
