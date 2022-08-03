@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.bitter-gourd.com/2022/06/03/LeetCode%E4%B9%8BJS%E9%A2%98%E8%A7%A3/</loc>
+    <lastmod>2022-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bitter-gourd.com/2022/08/02/React/</loc>
+    <lastmod>2022-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bitter-gourd.com/2022/05/19/git/</loc>
+    <lastmod>2022-07-30</lastmod>
+  </url>
+  <url>
     <loc>https://www.bitter-gourd.com/2022/07/10/Vuex/</loc>
     <lastmod>2022-07-25</lastmod>
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/07/22/Koa2/</loc>
     <lastmod>2022-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bitter-gourd.com/2022/07/11/Vue-router/</loc>
+    <lastmod>2022-07-24</lastmod>
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/07/18/sass/</loc>
@@ -19,10 +35,6 @@
   <url>
     <loc>https://www.bitter-gourd.com/2022/07/15/mongodb/</loc>
     <lastmod>2022-07-18</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bitter-gourd.com/2022/07/11/Vue-router/</loc>
-    <lastmod>2022-07-15</lastmod>
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/05/21/Vue/</loc>
@@ -70,10 +82,6 @@
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/06/05/CSS%E6%9D%83%E9%87%8D/</loc>
-    <lastmod>2022-06-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bitter-gourd.com/2022/06/03/LeetCode%E4%B9%8BJS%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2022-06-05</lastmod>
   </url>
   <url>
@@ -138,10 +146,6 @@
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/05/15/%E6%9C%89%E8%B6%A3%E7%9A%84%E7%BD%91%E7%AB%99/</loc>
-    <lastmod>2022-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bitter-gourd.com/2022/05/19/git/</loc>
     <lastmod>2022-05-21</lastmod>
   </url>
   <url>
