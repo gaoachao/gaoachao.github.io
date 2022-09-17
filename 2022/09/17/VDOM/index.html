@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="bitter-gourd">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="VDOM  一个手写的VDOM类库  使用babel转换jsx代码  目前实现jsx到js的转换不需要完全依赖react的库，只需要用babel的新插件  配置环境 12yarn inityarn add -D @babel&#x2F;cli @babel&#x2F;core @babel&#x2F;plugin-transform-react-jxs 运行babel 1.&#x2F;node_modules&#x2F;.bin&#x2F;babel sr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VDOM">
+<meta property="og:url" content="https://www.bitter-gourd.com/2022/09/17/VDOM/index.html">
+<meta property="og:site_name" content="Bitter-Gourd">
+<meta property="og:description" content="VDOM  一个手写的VDOM类库  使用babel转换jsx代码  目前实现jsx到js的转换不需要完全依赖react的库，只需要用babel的新插件  配置环境 12yarn inityarn add -D @babel&#x2F;cli @babel&#x2F;core @babel&#x2F;plugin-transform-react-jxs 运行babel 1.&#x2F;node_modules&#x2F;.bin&#x2F;babel sr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.bitter-gourd.com/img/vdom.jpg">
+<meta property="article:published_time" content="2022-09-17T05:55:33.000Z">
+<meta property="article:modified_time" content="2022-09-17T05:56:37.793Z">
+<meta property="article:author" content="bitter-gourd">
+<meta property="article:tag" content="整理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.bitter-gourd.com/img/vdom.jpg">
+  
+  
+      <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
+  
+  <title>VDOM - Bitter-Gourd</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.bitter-gourd.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","app_key":"JqtRDL6zUHz12DWKKpoJDEQz","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Bitter-Gourd</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/wallpaper.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VDOM">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-09-17 13:55" pubdate>
+        2022年9月17日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      59 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VDOM</h1>
+            
+            <div class="markdown-body">
+              <h1>VDOM</h1>
+<blockquote>
+<p>一个手写的VDOM类库</p>
+</blockquote>
+<h2 id="使用babel转换jsx代码">使用babel转换jsx代码</h2>
+<blockquote>
+<p>目前实现jsx到js的转换不需要完全依赖react的库，只需要用babel的新插件</p>
+</blockquote>
+<h3 id="配置环境">配置环境</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">yarn init<br>yarn add -D @babel/cli @babel/core @babel/plugin-transform-react-jxs<br></code></pre></div></td></tr></table></figure>
+<h3 id="运行babel">运行babel</h3>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">./node_modules/.bin/babel src --out-dir lib<br></code></pre></div></td></tr></table></figure>
+<h2 id="createVdom">createVdom</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 1.利用函数创建一个vdom，传入三个参数</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">createVdom</span> = (<span class="hljs-params">type, props, ...children</span>) =&gt;&#123;<br>	<span class="hljs-keyword">return</span> &#123;<br>			type,<br>			props,<br>			children,<br>	&#125;;<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> createVdom;<br></code></pre></div></td></tr></table></figure>
+<h2 id="convertVdom">convertVdom</h2>
+<ul>
+<li><code>isCustomProp</code>：对<code>prop</code>的判断</li>
+<li><code>isEventProp</code>：对事件回调属性的判断</li>
+<li><code>extractEventName</code>：处理事件回调属性的<code>key</code></li>
+<li><code>setProp</code>：设置属性</li>
+<li><code>toRealDom</code>：转化成真实<code>dom</code>的主函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 2.将虚拟dom转化成真实dom</span><br><span class="hljs-comment">/*关于 isCustomProp 函数:</span><br><span class="hljs-comment">		有一类属性是我们的自定义属性，例如主流框架中的组件间的状态传递，</span><br><span class="hljs-comment">		即通过props来进行传递的，我们并不希望这一类属性显示在 DOM 中，</span><br><span class="hljs-comment">		因此需要编写一个函数isCustomProp来检查这个属性是否是自定义属性，</span><br><span class="hljs-comment">		因为本文只是为了实现 Virtual DOM 的核心思想，为了方便，在本文中，这个函数直接返回false。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">isCustomProp</span> =(<span class="hljs-params">name</span>)=&gt;&#123;<br>	<span class="hljs-comment">/* 这里需要对prop进行判断 */</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-comment">//判断是否有事件回调属性</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">isEventProp</span> =(<span class="hljs-params">name</span>)=&gt; &#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-regexp">/^on/</span>.<span class="hljs-title function_">test</span>(name);<br>&#125;<br><br><span class="hljs-comment">//去掉on，在JSX中还要转化成小写</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">extractEventName</span> =(<span class="hljs-params">name</span>) =&gt;&#123;<br>	<span class="hljs-keyword">return</span> name.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>).<span class="hljs-title function_">toLowerCase</span>();<br>&#125;<br><br><span class="hljs-comment">//给真实dom设置prop</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">setProp</span> =(<span class="hljs-params">$target, name, value</span>)=&gt; &#123;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-title function_">isCustomProp</span>(name)) &#123;<br>			<span class="hljs-keyword">return</span>;<br>	<span class="hljs-comment">//主要针对jsx生成虚拟DOM</span><br>	&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (name === <span class="hljs-string">&#x27;className&#x27;</span>) &#123; <br>			<span class="hljs-keyword">return</span> $target.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;class&#x27;</span>, value);<br>	&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isEventProp</span>(name)) &#123;<br>		<span class="hljs-keyword">return</span> $target.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-title function_">extractEventName</span>(name), value);<br>	&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;boolean&#x27;</span>) &#123;<br>			<span class="hljs-keyword">if</span> (value) &#123;<br>					$target.<span class="hljs-title function_">setAttribute</span>(name, value);<br>			&#125;<br>			<span class="hljs-comment">//如果value是false的话真实dom没有必要加上这个属性</span><br>			$target[name] = value;<br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>			$target.<span class="hljs-title function_">setAttribute</span>(name, value);<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">toRealDom</span> = (<span class="hljs-params">vNode</span>) =&gt;&#123;<br>	<span class="hljs-comment">///$dom表示真实DOM</span><br>	<span class="hljs-keyword">let</span> $dom;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> vNode === <span class="hljs-string">&#x27;string&#x27;</span>) &#123;<br>		<span class="hljs-comment">//如果vdom的类型是string而不是对象</span><br>			$dom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createTextNode</span>(vNode);<br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>			$dom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(vNode.<span class="hljs-property">type</span>);<br>	&#125;<br><br>	<span class="hljs-comment">//处理虚拟DOM上的props</span><br>	<span class="hljs-keyword">if</span> (vNode.<span class="hljs-property">props</span>) &#123;<br>			<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(vNode.<span class="hljs-property">props</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;<br>					<span class="hljs-title function_">setProp</span>($dom, key, vNode.<span class="hljs-property">props</span>[key]);<br>			&#125;);<br>	&#125;<br><br>	<span class="hljs-comment">//递归处理子节点，这里需要注意 空数组[]返回的是true 因此加上 vNode.children.length</span><br>	<span class="hljs-keyword">if</span> (vNode.<span class="hljs-property">children</span> &amp;&amp; vNode.<span class="hljs-property">children</span>.<span class="hljs-property">length</span>) &#123;<br>			vNode.<span class="hljs-property">children</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">childVdom</span> =&gt;</span> &#123;<br>					<span class="hljs-keyword">const</span> realChildDom = <span class="hljs-title function_">toRealDom</span>(childVdom);<br>					$dom.<span class="hljs-title function_">appendChild</span>(realChildDom);<br>			&#125;);<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> $dom;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> toRealDom;<br></code></pre></div></td></tr></table></figure>
+<h2 id="updateDom">updateDom</h2>
+<ul>
+<li><code>updateDom</code>：更新DOM的主函数</li>
+<li><code>isNodeChanged</code>：来判断节点是否改变</li>
+<li><code>isPropsChanged</code>：来判断属性值是否改变</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> toRealDom <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./convertVdom.js&quot;</span>;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type"></span>&#125;$parent 表示挂载的父节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span>	&#123;<span class="hljs-type"></span>&#125;oldVnode 表示旧的节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type"></span>&#125;newNode 表示新的节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number</span>&#125; index 表示当前更新第几子节点，默认为0</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">updateDom</span> = (<span class="hljs-params">$parent, oldVNode, newVNode, index</span>) =&gt; &#123;<br>  <span class="hljs-comment">// 当前索引的真实DOM为传入的父节点的</span><br>  <span class="hljs-keyword">const</span> $currentDom = $parent.<span class="hljs-property">childNodes</span>[index];<br>  <span class="hljs-comment">// 先考虑新旧VDOM的类型变化</span><br>  <span class="hljs-comment">// 没有旧的节点，添加新的节点</span><br>  <span class="hljs-keyword">if</span> (!oldVNode) &#123;<br>    <span class="hljs-keyword">return</span> $parent.<span class="hljs-title function_">appendChild</span>(<span class="hljs-title function_">toRealDom</span>(newVNode));<br>  &#125;<br><br>  <span class="hljs-comment">// 没有新的节点，删去旧的RDOM</span><br>  <span class="hljs-keyword">if</span> (!newVNode) &#123;<br>    <span class="hljs-keyword">return</span> $parent.<span class="hljs-title function_">removeChild</span>($currentDom);<br>  &#125;<br><br>  <span class="hljs-comment">// 都是文本节点，都没有发生变化</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> oldVNode === <span class="hljs-string">&quot;string&quot;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> newVNode === <span class="hljs-string">&quot;string&quot;</span> &amp;&amp; oldVNode === newVNode) &#123;<br>      <span class="hljs-keyword">return</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isNodeChanged</span>(oldVNode, newVNode)) &#123;<br>    <span class="hljs-keyword">return</span> $parent.<span class="hljs-title function_">replaceChild</span>(<span class="hljs-title function_">toRealDom</span>(newVNode), $currentDom);<br>  &#125;<br><br>  <span class="hljs-keyword">const</span> oldProps = oldVNode.<span class="hljs-property">props</span> || &#123;&#125;;<br>  <span class="hljs-keyword">const</span> newProps = newVNode.<span class="hljs-property">props</span> || &#123;&#125;;<br><br>  <span class="hljs-comment">// 在考虑新旧节点上props的变化</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isPropsChanged</span>(oldProps, newProps)) &#123;<br>    <span class="hljs-keyword">const</span> oldPropsKeys = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(oldProps);<br>    <span class="hljs-keyword">const</span> newPropsKeys = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(newProps);<br><br>    <span class="hljs-comment">// 如果新节点没有属性，把旧的节点的属性清除掉</span><br>    <span class="hljs-keyword">if</span> (newPropsKeys.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) &#123;<br>      oldPropsKeys.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">propKey</span>) =&gt;</span> &#123;<br>        <span class="hljs-title function_">removeProp</span>($currentDom, propKey, oldProps[propKey]);<br>      &#125;);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-keyword">const</span> allPropsKeys = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>([...oldPropsKeys, ...newPropsKeys]);<br>      allPropsKeys.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">propKey</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (!newProps[propKey]) &#123;<br>          <span class="hljs-keyword">return</span> <span class="hljs-title function_">removeProp</span>($currentDom, propKey, oldProps[propKey]);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (newProps[propKey] !== oldProps[propKey]) &#123;<br>          <span class="hljs-keyword">return</span> <span class="hljs-title function_">setProp</span>($currentDom, propKey, newProps[propKey]);<br>        &#125;<br>      &#125;);<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-comment">// 递归处理子节点</span><br>  <span class="hljs-keyword">if</span> (<br>    (oldVNode.<span class="hljs-property">children</span> &amp;&amp; oldVNode.<span class="hljs-property">children</span>.<span class="hljs-property">length</span>) ||<br>    (newVNode.<span class="hljs-property">children</span> &amp;&amp; newVNode.<span class="hljs-property">children</span>.<span class="hljs-property">length</span>)<br>  ) &#123;<br>    <span class="hljs-keyword">for</span> (<br>      <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;<br>      i &lt; oldVNode.<span class="hljs-property">children</span>.<span class="hljs-property">length</span> || i &lt; newVNode.<span class="hljs-property">children</span>.<span class="hljs-property">length</span>;<br>      i++<br>    ) &#123;<br>      <span class="hljs-title function_">updateDom</span>($currentDom, oldVNode.<span class="hljs-property">children</span>[i], newVNode.<span class="hljs-property">children</span>[i], i);<br>    &#125;<br>  &#125;<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span>	&#123;<span class="hljs-type"></span>&#125;oldVnode 表示旧的节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type"></span>&#125;newNode 表示新的节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">bealean</span>&#125; 当前节点是否发生修改</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">isNodeChanged</span> = (<span class="hljs-params">oldVNode, newVNode</span>) =&gt; &#123;<br>  <span class="hljs-comment">//一个是textNode(string)，一个是element(object)</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> oldVNode !== <span class="hljs-keyword">typeof</span> newVNode) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br><br>  <span class="hljs-comment">//都是textNode(string) 则需比较文本是否发生改变</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> oldVNode === <span class="hljs-string">&quot;string&quot;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> newVNode === <span class="hljs-string">&quot;string&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> oldVNode !== newVNode;<br>  &#125;<br><br>  <span class="hljs-comment">//都是element节点，比较节点类型是否发生改变</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> oldVNode === <span class="hljs-string">&quot;object&quot;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> newVNode === <span class="hljs-string">&quot;object&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> oldVNode.<span class="hljs-property">type</span> !== newVNode.<span class="hljs-property">type</span>;<br>  &#125;<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span>	&#123;<span class="hljs-type"></span>&#125;oldProps 表示旧的props</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type"></span>&#125;newProps 表示新的props</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">bealean</span>&#125; 当前props是否发生修改</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">isPropsChanged</span> = (<span class="hljs-params">oldProps, newProps</span>) =&gt; &#123;<br>  <span class="hljs-comment">// 类型不一致，props肯定发生变化</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> oldProps !== <span class="hljs-keyword">typeof</span> newProps) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br><br>  <span class="hljs-comment">// props为对象</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> oldProps === <span class="hljs-string">&quot;object&quot;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> newProps === <span class="hljs-string">&quot;object&quot;</span>) &#123;<br>    <span class="hljs-keyword">const</span> oldKeys = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(oldProps);<br>    <span class="hljs-keyword">const</span> newKeys = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(newProps);<br><br>    <span class="hljs-comment">//如果数目不同一定发生变化直接返回true</span><br>    <span class="hljs-keyword">if</span> (oldKeys.<span class="hljs-property">length</span> !== newKeys.<span class="hljs-property">length</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; oldKeys.<span class="hljs-property">length</span>; i++) &#123;<br>      <span class="hljs-keyword">const</span> key = oldKeys[i];<br>      <span class="hljs-comment">// 如果key也发生改变了那就不能做到一一对应，newProps[key] === undefined</span><br>      <span class="hljs-keyword">if</span> (oldProps[key] !== newProps[key]) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;;<br><br><span class="hljs-comment">// removeProp 与 setProp 相对应</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">isCustomProp</span> = (<span class="hljs-params">name</span>) =&gt; &#123;<br>  <span class="hljs-comment">/* 这里需要对prop进行判断 */</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;;<br><span class="hljs-comment">//判断是否有事件回调属性</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">isEventProp</span> = (<span class="hljs-params">name</span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^on/</span>.<span class="hljs-title function_">test</span>(name);<br>&#125;;<br><span class="hljs-comment">//去掉on，在JSX中还要转化成小写</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">extractEventName</span> = (<span class="hljs-params">name</span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> name.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>).<span class="hljs-title function_">toLowerCase</span>();<br>&#125;;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">removeProp</span> = (<span class="hljs-params">$target, name, value</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isCustomProp</span>(name)) &#123;<br>    <span class="hljs-keyword">return</span>;<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (name === <span class="hljs-string">&quot;className&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> $target.<span class="hljs-title function_">removeAttribute</span>(<span class="hljs-string">&quot;class&quot;</span>);<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isEventProp</span>(name)) &#123;<br>    <span class="hljs-keyword">return</span> $target.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-title function_">extractEventName</span>(name), value);<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&quot;boolean&quot;</span>) &#123;<br>    $target.<span class="hljs-title function_">removeAttribute</span>(name);<br>    $target[name] = <span class="hljs-literal">false</span>;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    $target.<span class="hljs-title function_">removeAttribute</span>(name);<br>  &#125;<br>&#125;;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">setProp</span> = (<span class="hljs-params">$target, name, value</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isCustomProp</span>(name)) &#123;<br>    <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">//主要针对jsx生成虚拟DOM</span><br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (name === <span class="hljs-string">&quot;className&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> $target.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;class&quot;</span>, value);<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isEventProp</span>(name)) &#123;<br>    <span class="hljs-keyword">return</span> $target.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-title function_">extractEventName</span>(name), value);<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&quot;boolean&quot;</span>) &#123;<br>    <span class="hljs-keyword">if</span> (value) &#123;<br>      $target.<span class="hljs-title function_">setAttribute</span>(name, value);<br>    &#125;<br>    <span class="hljs-comment">//如果value是false的话真实dom没有必要加上这个属性</span><br>    $target[name] = value;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    $target.<span class="hljs-title function_">setAttribute</span>(name, value);<br>  &#125;<br>&#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> updateDom;<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/React/">React</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E7%90%86/">整理</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/02/React/">
+                        <span class="hidden-mobile">React</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"aThOVygcWt0wPq9uLgznKum9-gzGzoHsz","appKey":"JqtRDL6zUHz12DWKKpoJDEQz","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>bitter-gourd</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>2022</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/diy/timeDate.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/Metingjs@1.2/dist/Meting.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
