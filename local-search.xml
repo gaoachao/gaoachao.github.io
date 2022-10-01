@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>script标签中的async和defer属性</title>
+    <link href="/2022/10/01/script%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84async%E5%92%8Cdefer%E5%B1%9E%E6%80%A7/"/>
+    <url>/2022/10/01/script%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84async%E5%92%8Cdefer%E5%B1%9E%E6%80%A7/</url>
+    
+    <content type="html"><![CDATA[<h1>script标签中的async和defer属性</h1><blockquote><p><a href="https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html">参考地址</a></p></blockquote><p>在 HTML 中会遇到以下三类 script：</p><ul><li><code>&lt;script src='xxx'&gt;&lt;/script&gt;</code></li><li><code>&lt;script src='xxx' async&gt;&lt;/script&gt;</code></li><li><code>&lt;script src='xxx' defer&gt;&lt;/script&gt;</code></li></ul><p><img src="0.jpg" alt="解释"></p><h2 id="script">script</h2><p>浏览器在解析HTML的时候，如果遇到一个没有任何属性的<code>script</code>标签，就会暂停解析，，先发送网络请求获取该JS脚本的代码内容，然后让JS引擎执行该代码，当代码执行完毕后恢复解析。</p><p><code>script</code> 会阻塞浏览器对 HTML 的解析，如果获取 JS 脚本的网络请求迟迟得不到响应，或者 JS 脚本执行时间过长，都会导致白屏，用户看不到页面内容。</p><p><img src="1.jpg" alt="script"></p><h2 id="async-script">async script</h2><p>当浏览器遇到带有 async 属性的 script 时，请求该脚本的网络请求是异步的，不会阻塞浏览器解析 HTML，一旦网络请求回来之后，如果此时 HTML 还没有解析完，浏览器会暂停解析，先让 JS 引擎执行代码，执行完毕后再进行解析。</p><p>但如果在 JS 脚本请求回来之前，HTML 已经解析完毕了，那就会立即执行 JS 代码，这种情况下就不会阻塞浏览器解析HTML。</p><p><img src="2.jpg" alt="async script"></p><h2 id="defer-script">defer script</h2><p>当浏览器遇到带有 defer 属性的 script 时，获取该脚本的网络请求也是异步的，不会阻塞浏览器解析 HTML，一旦网络请求回来之后，如果此时 HTML 还没有解析完，浏览器不会暂停解析并执行 JS 代码，而是等待 HTML 解析完毕再执行 JS 代码。</p><p>如果存在多个 defer script 标签，浏览器（IE9及以下除外）会保证它们按照在 HTML 中出现的顺序执行，不会破坏 JS 脚本之间的依赖关系。</p><p><img src="3.jpg" alt="defer script"></p><h2 id="总结">总结</h2><p>不同类型 script 的执行顺序及其是否阻塞解析 HTML 总结如下：</p><table><thead><tr><th>script 标签</th><th>JS 执行顺序</th><th>是否阻塞解析 HTML</th></tr></thead><tbody><tr><td><code>&lt;script&gt;</code></td><td>在 HTML 中的顺序</td><td>阻塞</td></tr><tr><td><code>&lt;script async&gt;</code></td><td>网络请求返回顺序</td><td>可能阻塞，也可能不阻塞</td></tr><tr><td><code>&lt;script defer&gt;</code></td><td>在 HTML 中的顺序</td><td>不阻塞</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>CSS和HTML</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>整理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>单页面应用路由实现</title>
     <link href="/2022/09/29/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0/"/>
     <url>/2022/09/29/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0/</url>
