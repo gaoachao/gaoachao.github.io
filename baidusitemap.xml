@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.bitter-gourd.com/2022/12/23/react-router/</loc>
+    <lastmod>2022-12-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bitter-gourd.com/2022/12/22/Mobx/</loc>
+    <lastmod>2022-12-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bitter-gourd.com/2022/08/02/React/</loc>
+    <lastmod>2022-12-22</lastmod>
+  </url>
+  <url>
     <loc>https://www.bitter-gourd.com/2022/10/02/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/</loc>
     <lastmod>2022-10-11</lastmod>
   </url>
@@ -25,16 +37,8 @@
     <lastmod>2022-10-09</lastmod>
   </url>
   <url>
-    <loc>https://www.bitter-gourd.com/2022/08/02/React/</loc>
-    <lastmod>2022-10-02</lastmod>
-  </url>
-  <url>
     <loc>https://www.bitter-gourd.com/2022/10/01/script%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84async%E5%92%8Cdefer%E5%B1%9E%E6%80%A7/</loc>
     <lastmod>2022-10-01</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bitter-gourd.com/2022/09/22/Event-Loop/</loc>
-    <lastmod>2022-09-22</lastmod>
   </url>
   <url>
     <loc>https://www.bitter-gourd.com/2022/09/20/Promise-A/</loc>
